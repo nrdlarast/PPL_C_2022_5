@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600;900&display=swap');
+
+body{
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    
+}
+
+.navbar {
+    font-size: 25px;
+    /* background-color: blanchedalmond; */
+    padding: 30px 0;
+    font-weight: 900;
+}
+
+.title{
+    font-weight: 600;
+    font-size: 49px;
+    /* background-color: brown; */
+    display: flex;
+    line-height: 39px;
+    padding: 0px;
+}
+
+.title2{
+    padding-top: 20px;
+    /* background-color: aqua; */
+}
+
+.cotitle .rounded{
+    background-color: aqua;
+}
+
+.ps-5 {
+    padding-top: 66px !important;
+    padding-left: 130px !important;
+  }
+
+.col-form-label{
+    font-weight: 500;
+    font-size: 24px;
+    color: #5B5B5B;
+}
+
+form{
+    /* background-color: aqua; */
+    margin-top: 77px;
+}
+
+
+
+.form-control{
+    border-radius: 12px;
+    background-color: #EFEFEF;
+    border: none;
+    height: 52px;
+    font-size: 24px;
+    /* max-width: 1000px; */
+}
+
+.form-select{
+    border-radius: 12px;
+    background-color: #EFEFEF;
+    border: none;
+    height: 52px;
+    font-size: 24px;
+    /* max-width: 1000px; */
+}
+
+.form-group {
+    /* background-color: blueviolet; */
+    margin-top: 20px;
+    margin-bottom: 40px;
+    
+}
+.col-2{
+    /* background-color: bisque; */
+    padding-right: 10px;
+    margin-right: 26px;
+}
+
+.col-6{
+    max-width: 900px;
+}
+
+.rounded{
+    border-radius: 13px !important;
+}
+
+.btn{
+    border-radius: 13px !important;
+}
+
+.float-right{
+    margin-left: 75px;
+}
+
+.bedit{
+    padding-left:  24px;
+    padding-right:  24px;
+    border: 2px;
+}
+
+
+.bedit{
+    margin: 5px;
+    margin-top: 23px;
+}
+
+.bup{
+    margin-top: 14px;
+    padding-left: 70px;
+    padding-right: 70px;
+}
+
+.blogin{
+    margin-top: 40px;
+}
+
+
+
+
