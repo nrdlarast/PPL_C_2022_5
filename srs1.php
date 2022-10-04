@@ -1,23 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="stylesheets.css">
-  </head>
-<body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<!-- As a heading -->
-
-<!-- <nav class="navbar sticky-top border-bottom mb-1"> -->
-<nav class="navbar border-bottom border-secondary">
-  <div class="container-fluid justify-content-center ">
-    <span>UNIVERSITAS DIPONEGORO</span>
-  </div>
-</nav>
+<?php include 'header.html' ?>
 
 <div class="cotitle container-lg ps-5">
   <span class="title">Data</span>
@@ -63,16 +44,7 @@
       </div>
       </div>
     <div class="col pfp">
-      <img src="img/darwin.jpg" class="rounded float-right " alt="" height="200px" width="200px">
-      <div class="col">
-        <div class="d-flex justify-content-center tombol ">
-          <button type="button" class="btn bedit border border-secondary">Ganti</button>
-          <button type="button" class="btn bedit border border-secondary">Hapus</button>
-        </div>
-        
-        <div class="d-flex justify-content-center">
-        <button type="button" class="btn btn-primary bup">Update</button>
-        </div>
+      <?php include 'pfp.html'?>
       </div>
         
     </div>
@@ -115,7 +87,3 @@
   </div> -->
   </form>
 </div>
-
-  
-</body>
-</html>

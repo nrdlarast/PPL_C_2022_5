@@ -26,7 +26,7 @@
   <form class="font-form"action="" method="post">
 
   <div class="row">
-    <div class="col-2">
+    <div class="col-3">
       <div class="form-group col">
         <label for="email" class="col-form-label">Email</label>
       </div>
@@ -34,20 +34,19 @@
         <label for="password" class="col-form-label">Password</label>
       </div>
     </div>
-    <div class="col-6">
+    <div class="col-7">
       <div class="col form-group">
         <input type="email" id="email" name="email"class="form-control" >
       </div>
       <div class="col form-group">
         <input type="password" id="password" name="password"class="form-control" >
       </div>
+      <button type="button" class="btn btn-primary blogin">Login</button>
     </div>
-    <div class="col pfp">
+    <!-- <div class="col pfp">
       <div class="col">
-        <button type="button" class="btn btn-primary bup">Login</button>
         <button type="button" class="btn btn-primary blogin">Login</button>
-
-      </div>
+      </div> -->
         
     </div>
   </div>
