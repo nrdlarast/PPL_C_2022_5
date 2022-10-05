@@ -200,7 +200,11 @@ img.rounded.darwin {
   transition: all 0.2s ease-in-out;
   margin: 4px;
 }
-
+a {
+  color: black;
+  cursor: pointer;
+  text-decoration: none;
+}
 .navMenu a:hover {
   /* color: #fddb3a; */
   color: white;
@@ -214,6 +218,7 @@ img.rounded.darwin {
 .batas h1 {
   font-weight: 600;
   font-size: 39px;
+  color: black
 }
 
 .profile input{
@@ -297,14 +302,37 @@ textarea.form-control {
 }
 
 
-/* .file-label:active .file-cta{
-  background-color: #f9f9f9;
-  padding-left: 170px;
-  padding-right: 170px;
+.text-sm {
+  font-size: 16px;
+  line-height: 1.25rem;
 }
 
-.file-cta, .file-name {
-  background-color: #f9f9f9;
-  padding-left: 170px;
-  padding-right: 170px;
-} */
+.font-medium {
+  font-weight: 600;
+}
+
+.wrapper {
+  padding: 100px;
+}
+
+.image--cover {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+
+  object-fit: cover;
+  object-position: center right;
+}
+
+.px-3 {
+  padding-left: 3rem!important;
+}
+
+.mt-2 {
+  margin-top: 1em!important;
+}
+
+.pfppo {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
