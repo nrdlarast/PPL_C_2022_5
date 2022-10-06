@@ -15,7 +15,7 @@
             <h2 style="text-align: center;">darwinthefish@gmail.com</h2>
         </div>
 
-		<div class="w-full px-2">
+		<div class="w-full px-2" style="margin-bottom: 100%;">
 			<div class="flex flex-col items-center w-full mt-3 border-gray-400">
 				<a class="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-300" href="#">
 					<svg class="w-6 h-6 stroke-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -92,20 +92,87 @@
                 <h1>Mahasiswa</h1>
             </div>
         </div>
-        <div class="container">
-            <div class="row "style="text-align: center; margin-top: 180px">
-                <div class="col-sm" >
-                <h1>Verifikasi IRS</h1>
-                </div>
-                <div class="col-sm">
-                <h1>Verifikasi KHS</h1>
-                </div>
-                <div class="col-sm" >
-                <h1>Verifikasi PKL</h1>
-                </div>
-                <div class="col-sm">
-                <h1>Verifikasi Skripsi</h1>
-                </div>
+        <div class="">
+            <div class="row "style="text-align: center; margin-top: 130px; font-size: 20px;font-weight: 600;">
+                <div class="col-sm verif border-r"style="padding-top: 50px;padding-bottom: 50px;">
+					<h1 class="verifikasi">Verifikasi IRS</h1>
+
+					<div class="col" style="margin-top: 25px;margin-bottom: 10px;">
+						<label for="jalur_masuk" style="justify-content: left;padding: 0px 130px 0px 0px;font-size: 15px; font-weight: 500;">Status IRS</label>
+						<select class="form-control" id="jalur_masuk" name="jalur_masuk">
+							<option value="disetujui">Disetujui</option>
+							<option value="belum disetujui">belum disetujui</option>
+						</select>
+						<small class="form-text text-danger" id="jalur_masuk_error"></small>
+					</div>
+					
+					<div class="d-flex justify-content-center">
+                    	<button type="button" class="btn btn-primary bup" >Lihat Detail</button>
+                	</div>
+					<div class="d-flex justify-content-center">
+                    	<button type="button" class="btn btn-primary bup" style="">Update</button>
+                	</div>
+				</div>
+
+                <div class="col-sm verif border-r" style="padding-top: 50px;padding-bottom: 50px;">
+					<h1 class="verifikasi">Verifikasi KHS</h1>
+
+					<div class="col" style="margin-top: 25px;margin-bottom: 10px;">
+						<label for="jalur_masuk" style="justify-content: left;padding: 0px 130px 0px 0px;font-size: 15px; font-weight: 500;">Status IRS</label>
+						<select class="form-control" id="jalur_masuk" name="jalur_masuk">
+							<option value="disetujui">Disetujui</option>
+							<option value="belum disetujui">belum disetujui</option>
+						</select>
+						<small class="form-text text-danger" id="jalur_masuk_error"></small>
+					</div>
+					
+					<div class="d-flex justify-content-center">
+                    	<button type="button" class="btn btn-primary bup" >Lihat Detail</button>
+                	</div>
+					<div class="d-flex justify-content-center">
+                    	<button type="button" class="btn btn-primary bup" style="">Update</button>
+                	</div>
+				</div>
+
+                <div class="col-sm verif border-r" style="padding-top: 50px;padding-bottom: 50px;">
+					<h1 class="verifikasi">Verifikasi PKL</h1>
+
+					<div class="col" style="margin-top: 25px;margin-bottom: 10px;">
+						<label for="jalur_masuk" style="justify-content: left;padding: 0px 130px 0px 0px;font-size: 15px; font-weight: 500;">Status IRS</label>
+						<select class="form-control" id="jalur_masuk" name="jalur_masuk">
+							<option value="disetujui">Disetujui</option>
+							<option value="belum disetujui">belum disetujui</option>
+						</select>
+						<small class="form-text text-danger" id="jalur_masuk_error"></small>
+					</div>
+					
+					<div class="d-flex justify-content-center">
+                    	<button type="button" class="btn btn-primary bup" >Lihat Detail</button>
+                	</div>
+					<div class="d-flex justify-content-center">
+                    	<button type="button" class="btn btn-primary bup" style="">Update</button>
+                	</div>
+				</div>
+
+                <div class="col-sm verif border-r" style="padding-top: 50px;padding-bottom: 50px;">
+					<h1 class="verifikasi">Verifikasi Skripsi</h1>
+
+					<div class="col" style="margin-top: 25px;margin-bottom: 10px;">
+						<label for="jalur_masuk" style="justify-content: left;padding: 0px 130px 0px 0px;font-size: 15px; font-weight: 500;">Status IRS</label>
+						<select class="form-control" id="jalur_masuk" name="jalur_masuk">
+							<option value="disetujui">Disetujui</option>
+							<option value="belum disetujui">belum disetujui</option>
+						</select>
+						<small class="form-text text-danger" id="jalur_masuk_error"></small>
+					</div>
+					
+					<div class="d-flex justify-content-center">
+                    	<button type="button" class="btn btn-primary bup" >Lihat Detail</button>
+                	</div>
+					<div class="d-flex justify-content-center">
+                    	<button type="button" class="btn btn-primary bup" style="">Update</button>
+                	</div>
+				</div>
             </div>
             </div>
     </div>
