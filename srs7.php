@@ -53,6 +53,12 @@
 					</svg>
 					<span class="ml-2 text-sm font-medium">Data PKL</span>
 				</a>
+				<a class="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-300" href="#">
+					<svg class="w-6 h-6 stroke-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
+					</svg>
+					<span class="ml-2 text-sm font-medium">Data Skripsi</span>
+				</a>
 			</div>
 			<!-- <div class="flex flex-col items-center w-full mt-2 border-t border-gray-300">
 				<a class="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-300" href="#">
@@ -101,7 +107,7 @@
 						<label for="jalur_masuk" style="justify-content: left;padding: 0px 130px 0px 0px;font-size: 15px; font-weight: 500;">Status IRS</label>
 						<select class="form-control" id="jalur_masuk" name="jalur_masuk">
 							<option value="disetujui">Disetujui</option>
-							<option value="belum disetujui">belum disetujui</option>
+							<option value="belum disetujui">Belum disetujui</option>
 						</select>
 						<small class="form-text text-danger" id="jalur_masuk_error"></small>
 					</div>
@@ -118,10 +124,10 @@
 					<h1 class="verifikasi">Verifikasi KHS</h1>
 
 					<div class="col" style="margin-top: 25px;margin-bottom: 10px;">
-						<label for="jalur_masuk" style="justify-content: left;padding: 0px 130px 0px 0px;font-size: 15px; font-weight: 500;">Status IRS</label>
+						<label for="jalur_masuk" style="justify-content: left;padding: 0px 130px 0px 0px;font-size: 15px; font-weight: 500;">Status KHS</label>
 						<select class="form-control" id="jalur_masuk" name="jalur_masuk">
 							<option value="disetujui">Disetujui</option>
-							<option value="belum disetujui">belum disetujui</option>
+							<option value="belum disetujui">Belum disetujui</option>
 						</select>
 						<small class="form-text text-danger" id="jalur_masuk_error"></small>
 					</div>
@@ -138,10 +144,10 @@
 					<h1 class="verifikasi">Verifikasi PKL</h1>
 
 					<div class="col" style="margin-top: 25px;margin-bottom: 10px;">
-						<label for="jalur_masuk" style="justify-content: left;padding: 0px 130px 0px 0px;font-size: 15px; font-weight: 500;">Status IRS</label>
+						<label for="jalur_masuk" style="justify-content: left;padding: 0px 130px 0px 0px;font-size: 15px; font-weight: 500;">Status PKL</label>
 						<select class="form-control" id="jalur_masuk" name="jalur_masuk">
 							<option value="disetujui">Disetujui</option>
-							<option value="belum disetujui">belum disetujui</option>
+							<option value="belum disetujui">Belum disetujui</option>
 						</select>
 						<small class="form-text text-danger" id="jalur_masuk_error"></small>
 					</div>
@@ -158,10 +164,10 @@
 					<h1 class="verifikasi">Verifikasi Skripsi</h1>
 
 					<div class="col" style="margin-top: 25px;margin-bottom: 10px;">
-						<label for="jalur_masuk" style="justify-content: left;padding: 0px 130px 0px 0px;font-size: 15px; font-weight: 500;">Status IRS</label>
+						<label for="jalur_masuk" style="justify-content: left;padding: 0px 130px 0px 0px;font-size: 15px; font-weight: 500;">Status Skripsi</label>
 						<select class="form-control" id="jalur_masuk" name="jalur_masuk">
 							<option value="disetujui">Disetujui</option>
-							<option value="belum disetujui">belum disetujui</option>
+							<option value="belum disetujui">Belum disetujui</option>
 						</select>
 						<small class="form-text text-danger" id="jalur_masuk_error"></small>
 					</div>

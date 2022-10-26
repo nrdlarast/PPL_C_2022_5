@@ -2,17 +2,7 @@
 
 <div class="container">
   <div class="navMenu">
-        <!-- <a href="#">Home</a>
-        <a href="#">Blog</a>
-        <a href="#">Work</a>
-        <a href="#">About</a> -->
-        <a href="#">PROFILE</a>
-        <a href="#">IRS</a>
-        <a href="#">KHS</a>
-        <a href="#">PKL</a>
-        <a href="#">SKRIPSI</a>
-        <!-- <div class="dot"></div> -->
-        
+    <?php include 'navbarmhs.php' ?>
   </div>
   <div class="batas">
     <h1>Data Kartu Hasil Studi</h1>
@@ -82,7 +72,7 @@
             </div>
         </div>
         <div class="col">
-            <?php include 'pfp.html'?>
+            <?php include 'pfp.php'?>
         </div>
     </div>
 </div>
