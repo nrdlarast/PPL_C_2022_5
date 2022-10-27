@@ -1,3 +1,83 @@
+<?php
+//File      : login.php
+//Deskripsi : menampilkan form login dan melakukan login ke halaman admin.php
+
+session_start(); //inisialisasi session
+require_once('db_login.php');
+global $db;
+
+
+//cek apakah user sudah submit form
+if (isset($_POST["submit"])){
+    $valid = TRUE; //flag validasi
+
+    //cek validasi email
+    $email = test_input($_POST['email']);
+    if ($email == ''){
+        $error_email = "Email is required";
+        $valid = FALSE;
+    } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
+        $error_email = "Invalid email format";
+        $valid = FALSE;
+    }
+
+    //cek validasi password
+    $password = test_input($_POST['password']);
+    if ($password == ''){
+        $error_password = "Password is required";
+        $valid = FALSE;
+    }
+
+    //cek validasi
+    
+    // menyeleksi data user dengan email dan password yang sesuai
+    $login = mysqli_query($db,"select email, password, peran from user where email='$email' and password='$password'");
+    // menghitung jumlah data yang ditemukan
+    $cek = mysqli_num_rows($login);
+    if (!$cek){
+      $error_login = "Email atau password salah";
+      $valid = false;}
+    // cek apakah email dan password di temukan pada database
+    if($cek > 0){
+    
+        $data = mysqli_fetch_assoc($login);
+    
+        // cek jika user login sebagai admin
+        if($data['peran']=="mahasiswa"){
+            // buat session login dan email
+            $_SESSION['email'] = $email;
+            $_SESSION['peran'] = "mahasiswa";
+            // alihkan ke halaman dashboard admin
+            header("location:srs10.php");
+    
+        // cek jika user login sebagai pegawai
+        }else if($data['peran']=="dosen"){
+            // buat session login dan email
+            $_SESSION['email'] = $email;
+            $_SESSION['peran'] = "dosen";
+            // alihkan ke halaman dashboard pegawai
+            header("location:srs11.php");
+    
+        // cek jika user login sebagai pengurus
+        }else if($data['peran']=="admin"){
+            // buat session login dan email
+            $_SESSION['email'] = $email;
+            $_SESSION['peran'] = "admin";
+            // alihkan ke halaman dashboard pengurus
+            header("location:srs9.php");
+        }
+        else if($data['peran']=="departemen"){
+            // buat session login dan email
+            $_SESSION['email'] = $email;
+            $_SESSION['peran'] = "departemen";
+            // alihkan ke halaman dashboard pengurus
+            header("location:srs12.php");
+        }
+    }
+}
+ 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,12 +116,16 @@
     </div>
     <div class="col-7">
       <div class="col form-group">
-        <input type="email" id="email" name="email"class="form-control" >
+        <input type="email" class="form-control mb-2"  id="email" name="email" value="<?php if (isset($email)) {echo $email;} ?>">
       </div>
       <div class="col form-group">
-        <input type="password" id="password" name="password"class="form-control" >
+        <input type="password" class="form-control mb-2 " id="password" name="password" value="<?php if (isset($password)) {echo $password;} ?>">
       </div>
-      <button type="button" class="btn btn-primary blogin">Login</button>
+      <div>
+        <?php if (isset($error_login)) echo $error_login; ?></p>
+      </div>
+      <!-- <button type="button" class="btn btn-primary blogin" name="submit" value="submit">Login</button> -->
+      <button type="submit" class="btn btn-primary blogin" name="submit" value="submit" ">Login</button>
     </div>
     <!-- <div class="col pfp">
       <div class="col">
