@@ -3,6 +3,11 @@
 //Deskripsi : menampilkan form login dan melakukan login ke halaman admin.php
 
 session_start(); //inisialisasi session
+if(isset($_SESSION['login']))
+    {
+        header('Location: srs10.1.php');
+        exit;
+    }
 require_once('db_login.php');
 global $db;
 
@@ -48,7 +53,7 @@ if (isset($_POST["submit"])){
             $_SESSION['email'] = $email;
             $_SESSION['peran'] = "mahasiswa";
             // alihkan ke halaman dashboard admin
-            header("location:srs10.php");
+            header("location:srs10.1.php");
     
         // cek jika user login sebagai pegawai
         }else if($data['peran']=="dosen"){

@@ -13,6 +13,7 @@
 // while ($row = $result->fetch_object())
 
 ?>
+
 <div class="container">
     <?php include 'navbarmhs.php' ?>
   <div class="row">
@@ -31,7 +32,7 @@
         <div class="">
             <div class="row "style=" font-size: 20px;font-weight: 200; padding-left: 40px; padding-top: 20px; padding-bottom: 30px;" >
                 <div class="col-2">
-                    <form method="POST" autocomplete="on" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]).'?id=' .$id; ?>"></form>
+                    <!-- <form method="POST" autocomplete="on" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]).'?id=' .$id; ?>"></form> -->
                 <img src="img/darwin.jpg" class="darwin " alt="" height="200px" width="200px" style="border-radius: 20px">
 					<div class="col" style="margin-top: 10px;margin-bottom: 10px;">
                         <label for="status">IPK</label>
@@ -50,7 +51,8 @@
                 <div class="col-4">
 					<div class="col" style="margin-top: 25px;margin-bottom: 10px;">
                         <label for="status">Nama Lengkap</label>
-        		        <input type="text" id="nama" name="nama"class="form-control" value="<?php echo $name;?>">
+        		        <input type="text" id="nama" name="nama"class="form-control">
+                       
 					</div>
                     <div class="col form-group">
                         <label for="status">NIM</label>

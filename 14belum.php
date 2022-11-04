@@ -28,8 +28,8 @@
                     </div>
             </div>
             <div class="navMenu">
-                <li class="active"><a href="srs14.php" style="color: black;">Lulus</a></li>
-                <li><a href="14belum.php" style="color: white;">Belum Lulus</a></li>
+                <li><a href="srs14.php" style="color: white;">Lulus</a></li>
+                <li class="active"><a href="14belum.php" style="color: black;">Belum Lulus</a></li>
                         </div>
             <form action="" method="post">
                 <table class="table table-striped">
@@ -43,7 +43,7 @@
                 <?php
                 include "db_login.php";
                 $no = 1;
-                $data = mysqli_query($db,"select * from pkl join mahasiswa on mahasiswa.pkl_id = pkl.pkl_id where status ='lulus'");
+                $data = mysqli_query($db,"select * from pkl join mahasiswa on mahasiswa.pkl_id = pkl.pkl_id where status ='belum'");
                 while($d = mysqli_fetch_array($data)){
                 ?>
                 <tr>

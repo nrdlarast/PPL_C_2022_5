@@ -7,7 +7,7 @@
         <div class="roq">
              
             <div class="batas" style="text-align: center;font-size: 25px;font-weight: 200;">
-                <h2>Rekap Proggres PKL Mahasiswa Informatika  <br>
+                <h2>Rekap Skripsi Mahasiswa Informatika  <br>
                     Fakultas Sains dan Matematika UNDIP <br> </h2> <br>
             </div> 
         </div>
@@ -33,7 +33,7 @@
 
                 <div class="col" style="padding-left: 100px; padding-right: 100px;">
 					<div class="col" style="margin-top: 25px;margin-bottom: 10px;">
-                        <label for="status">Sudah Lulus PKL</label>
+                        <label for="status">Sudah Lulus Skripsi</label>
 					</div>
                     <div class="col">
                         <div class="box" style="width: 200px; height: 200px; background-color: #EFEFEF;" >
@@ -49,7 +49,7 @@
 				</div>
                 <div class="col" style="padding-left: 100px; padding-right: 100px;">
 					<div class="col" style="margin-top: 25px;margin-bottom: 10px;">
-                        <label for="status">Belum Lulus PKL</label>
+                        <label for="status">Belum Lulus Skripsi</label>
 					</div>
                     <div class="col" >
                         <div class="box" style="width: 200px; height: 200px; background-color: #EFEFEF;" >
