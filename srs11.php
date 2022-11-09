@@ -1,3 +1,6 @@
+<?php
+    require_once('db_login.php');        
+?>
 <?php include'header.html' ?>
   <div class="row">
     <div class="col-sm">
@@ -17,8 +20,11 @@
 					</div>
                     <div class="col">
                         <div class="box" style="width: 200px; height: 200px; background-color: #EFEFEF;" >
-                            <div style="margin-top: 25px;text-align:center; font-size: 75px;font-weight: 200;"> 
-                                <h1> 20 </h1>
+                            <div style="margin-top: 25px;text-align:center; font-size: 70px;font-weight: 200;"> 
+                                <?php $data_mahasiswa = mysqli_query($db,"select * from mahasiswa join dosen on mahasiswa.email_dosenwali = dosen.email WHERE email_dosenwali='$_SESSION[email]'");
+                                    $jumlah_mahasiswa = mysqli_num_rows($data_mahasiswa);
+                                    ?>
+                                <p> <b><?php echo $jumlah_mahasiswa; ?></b></p>
                             </div>
                             <div style="margin-bottom: 10px;text-align:center; font-size: 20px;font-weight: 200;"> 
                                 <h1> Mahasiswa </h1>
@@ -34,7 +40,10 @@
                     <div class="col">
                         <div class="box" style="width: 200px; height: 200px; background-color: #EFEFEF;" >
                             <div style="margin-top: 25px;text-align:center; font-size: 75px;font-weight: 200;"> 
-                                <h1> 5 </h1>
+                                <?php $data_mahasiswa = mysqli_query($db,"select * from mahasiswa join dosen on mahasiswa.email_dosenpkl = dosen.email WHERE email_dosenpkl='$_SESSION[email]'");
+                                    $jumlah_mahasiswa = mysqli_num_rows($data_mahasiswa);
+                                    ?>
+                                <p> <b><?php echo $jumlah_mahasiswa; ?></b></p>
                             </div>
                             <div style="margin-bottom: 10px;text-align:center; font-size: 20px;font-weight: 200;"> 
                                 <h1> Mahasiswa </h1>
@@ -50,7 +59,10 @@
                     <div class="col" >
                         <div class="box" style="width: 200px; height: 200px; background-color: #EFEFEF;" >
                             <div style="margin-top: 25px;text-align:center; font-size: 75px;font-weight: 200;"> 
-                                <h1> 15 </h1>
+                            <?php $data_mahasiswa = mysqli_query($db,"select * from mahasiswa join dosen on mahasiswa.email_dosenskripsi = dosen.email WHERE email_dosenskripsi='$_SESSION[email]'");
+                                    $jumlah_mahasiswa = mysqli_num_rows($data_mahasiswa);
+                                    ?>
+                                <p> <b><?php echo $jumlah_mahasiswa; ?></b></p>
                             </div>
                             <div style="margin-bottom: 10px;text-align:center; font-size: 20px;font-weight: 200;"> 
                                 <h1> Mahasiswa </h1>

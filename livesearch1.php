@@ -28,7 +28,7 @@ if (isset($_POST["input"])){
                 <td><?php echo $nama; ?></td>
                 <td><?php echo $nim; ?></td>
                 <td>
-                    <a class="button" href="srs8.1.php?nim=<?= $row['nim']; ?>">More</a>
+                    <a class="button" href="srs8.2.php?nim=<?= $row['nim']; ?>">More</a>
                 </td>
             </tr>
         <?php } ?>

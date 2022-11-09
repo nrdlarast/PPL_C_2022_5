@@ -41,7 +41,6 @@
                     </tr>
 
                 <?php
-                include "db_login.php";
                 $no = 1;
                 $data = mysqli_query($db,"select * from pkl join mahasiswa on mahasiswa.pkl_id = pkl.pkl_id where status ='lulus'");
                 while($d = mysqli_fetch_array($data)){

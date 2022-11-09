@@ -1,12 +1,5 @@
 <?php include'header.html' ?>
-<?php
-session_start();
-if(!isset($_SESSION["login"]) ) {
-    // header("Location: login.php");
-    // exit;
-}
 
-?>
 <?php
     require_once('db_login.php');        
 ?>
@@ -28,12 +21,12 @@ if(!isset($_SESSION["login"]) ) {
         </div>
         <div class="">
             <div class="row "style=" font-size: 20px;font-weight: 200; padding-left: 40px;" >
-                <div class="col"style="padding-left: 100px; padding-right: 100px; width: 33%; float: left">
-					<div class="col" style="margin-top: 25px;margin-bottom: 10px; text-align: center;">
+                <div class="col"style="padding-left: 100px; padding-right: 100px;">
+					<div class="col" style="margin-top: 10px;margin-bottom: 10px;">
                         <label for="status">Mahasiswa Aktif</label>
                     </div>
                     <div class="col">
-                        <div class="box" style="width: 100%; height: 200px; background-color: #EFEFEF; text-align:center; font-size: 75px;font-weight: 200;" >
+                        <div class="box" style="width: 200px; height: 200px; background-color: #EFEFEF; text-align:center; font-size: 75px;font-weight: 200;" >
                         <?php $data_mahasiswa = mysqli_query($db,"select * from mahasiswa  where status_mahasiswa ='aktif'");
                         $jumlah_mahasiswa = mysqli_num_rows($data_mahasiswa);
                         ?>
@@ -48,12 +41,12 @@ if(!isset($_SESSION["login"]) ) {
                     </div>
 				</div>
 
-                <div class="col" style="padding-left: 100px; padding-right: 100px; width: 33%; float: left">
-                    <div class="col" style="margin-top: 25px;margin-bottom: 10px; text-align: center;">
+                <div class="col" style="padding-left: 100px; padding-right: 100px;">
+					<div class="col" style="margin-top: 25px;margin-bottom: 10px;">
                         <label for="status">Mahasiswa Cuti/Tidak Aktif</label>
 					</div>
                     <div class="col">
-                    <div class="box" style="width: 100%; height: 200px; background-color: #EFEFEF; text-align:center; font-size: 75px;font-weight: 200;" >
+                    <div class="box" style="width: 200px; height: 200px; background-color: #EFEFEF; text-align:center; font-size: 75px;font-weight: 200;" >
                         <?php $data_mahasiswa = mysqli_query($db,"select * from mahasiswa  where status_mahasiswa ='cuti'");
                         $jumlah_mahasiswa = mysqli_num_rows($data_mahasiswa);
                         ?>
@@ -68,12 +61,12 @@ if(!isset($_SESSION["login"]) ) {
                     </div>
 
 				</div>
-                <div class="col" style="padding-left: 100px; padding-right: 100px; width: 33%; float: left">
-                    <div class="col" style="margin-top: 25px;margin-bottom: 10px; text-align: center;">
+                <div class="col" style="padding-left: 100px; padding-right: 100px;">
+					<div class="col" style="margin-top: 25px;margin-bottom: 10px;">
                         <label for="status">Jumlah Dosen/Tenaga Didik</label>
 					</div>
                     <div class="col" >
-                    <div class="box" style="width: 100%; height: 200px; background-color: #EFEFEF; text-align:center; font-size: 75px;font-weight: 200;" >
+                    <div class="box" style="width: 200px; height: 200px; background-color: #EFEFEF; text-align:center; font-size: 75px;font-weight: 200;" >
                         <?php $data_mahasiswa = mysqli_query($db,"select * from dosen ");
                         $jumlah_mahasiswa = mysqli_num_rows($data_mahasiswa);
                         ?>

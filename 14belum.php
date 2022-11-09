@@ -1,3 +1,4 @@
+
 <?php include'header.html' ?>
   <div class="row">
     <div class="col-sm">
@@ -41,7 +42,6 @@
                     </tr>
 
                 <?php
-                include "db_login.php";
                 $no = 1;
                 $data = mysqli_query($db,"select * from pkl join mahasiswa on mahasiswa.pkl_id = pkl.pkl_id where status ='belum'");
                 while($d = mysqli_fetch_array($data)){

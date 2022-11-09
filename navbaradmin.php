@@ -1,3 +1,26 @@
+<?php
+session_start();
+if(!isset($_SESSION["login"]) ) {
+    // header("Location: login.php");
+    // exit;
+}
+?>
+<?php
+    // Include our login information
+    require_once('db_login.php');
+	$query = "SELECT * FROM admin
+    WHERE email='$_SESSION[email]'";
+    $result = $db -> query($query);
+    if (!$result){
+        die ("Could not query the database: <br/>". $db->error ."<br>Query: ".$query);
+    } else { 
+        while ($row = $result->fetch_object()) {
+			$nama = $row->nama;
+            $email = $row->email;
+			$foto = $row->foto;
+            }
+        }
+		?>
 <div class="flex flex-col items-center h-full overflow-hidden border-r border-grey-400 text-gray-700" style="border-color: black;">
 		<!-- <a class="flex items-center w-full px-3 mt-3" href="#">
 			<svg class="w-8 h-8 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -7,9 +30,11 @@
 		</a> -->
         <!-- <div class="wrapper"> -->
         <div class="pfppo">
-            <img src="img/th.jpg" class="image--cover" style="margin-left: auto; margin-right: auto; margin-bottom: 13px;">
-            <h2 style="text-align: center;">Admin</h2>
-            <h2 style="text-align: center;">admin@gmail.com</h2>
+			<img src="img/<?php echo $foto ?>" class="darwin " alt="" height="80px" width="80px" style="margin-left: auto; margin-right: auto; margin-bottom: 13px;border-radius: 80px">
+            <div style="text-align: center;">
+			<?php echo $nama; ?> <br>
+			<?php echo $email; ?>
+			</div>
         </div>
 
 		<div class="w-full px-2" style="margin-bottom: 100%;">
@@ -18,7 +43,7 @@
 					<svg class="w-6 h-6 stroke-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
 					</svg>
-					<span class="ml-2 text-sm font-medium">Dashboard</span>
+					<span class="ml-2 text-sm font-medium">Dasboard</span>
 					
 				</a>
 				<a class="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-300" href="srs21.php">
@@ -27,7 +52,7 @@
 					</svg>
 					<span class="ml-2 text-sm font-medium">Manajemen Akun</span>
 				</a>
-				<a class="flex items-center w-full h-12 px-3 mt-2 hover:bg-gray-300 rounded" href="srs22.php">
+				<a class="flex items-center w-full h-12 px-3 mt-2 hover:bg-gray-300 rounded" href="srs8.2.php">
 					<svg class="w-6 h-6 stroke-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
 					</svg>

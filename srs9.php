@@ -1,16 +1,4 @@
 <?php include'header.html' ?>
-<?php
-session_start();
-if(!isset($_SESSION["login"]) ) {
-    // header("Location: login.php");
-    // exit;
-}
-
-?>
-<?php
-    require_once('db_login.php');        
-?>
-
   <div class="row">
     <div class="col-sm">
     <?php include 'navbaradmin.php' ?>

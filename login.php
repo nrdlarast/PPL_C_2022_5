@@ -106,7 +106,6 @@ if (isset($_POST["submit"])){
 
 <div class="cotitle container-lg ps-5">
   <span class="title">Login</span>
-  <span class="title title2">Mahasiswa</span>
   
   <form class="font-form"action="" method="post">
 

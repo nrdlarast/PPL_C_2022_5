@@ -19,7 +19,6 @@
     </tr>
 
     <?php
-    include "db_login.php";
     $no = 1;
     $data = mysqli_query($db,"select * from dosen");
     while($d = mysqli_fetch_array($data)){

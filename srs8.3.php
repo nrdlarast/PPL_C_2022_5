@@ -2,7 +2,7 @@
 <?php error_reporting(0) ?>
   <div class="row">
     <div class="col-sm">
-    <?php include 'navbardepartemen.php' ?>
+    <?php include 'navbardosen.php' ?>
     </div>
 
     <div class="col-10">
@@ -30,7 +30,7 @@
 
             if(input != ""){
                 $.ajax({
-                    url:"livesearch.php",
+                    url:"livesearch3.php",
                     method:"POST",
                     data:{input:input},
 
@@ -44,4 +44,4 @@
             }
         });
     });
-</script>
+</script>    
