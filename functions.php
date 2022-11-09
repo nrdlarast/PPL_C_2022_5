@@ -35,7 +35,7 @@
         $no_hp = htmlspecialchars($data["no_hp"]);
         $alamat = htmlspecialchars($data["alamat"]);
         $nama_provinsi = htmlspecialchars($data["nama_provinsi"]);
-        $kota_kab = htmlspecialchars($data["kota_kab"]);
+        $nama_kotakab = htmlspecialchars($data["nama_kotakab"]);
         $foto = htmlspecialchars($data["foto"]);
     
     
@@ -48,7 +48,7 @@
                     no_hp = '$no_hp',
                     alamat = '$alamat',
                     nama_provinsi = '$nama_provinsi',
-                    kota_kab = '$kota_kab',
+                    nama_kotakab = '$nama_kotakab',
                     foto = '$foto'
                     WHERE nim = $nim
             ";
