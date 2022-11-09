@@ -45,6 +45,7 @@
                     status_mahasiswa = '$status_mahasiswa',
                     email = '$email',
                     no_hp = '$no_hp',
+                    alamat = '$alamat',
                     foto = '$foto'
                     WHERE nim = $nim
             ";
