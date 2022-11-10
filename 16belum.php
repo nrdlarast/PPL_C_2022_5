@@ -14,18 +14,6 @@
         </div>
         <div class="">
             <div class="row "style=" padding-block: 50px; padding-left: 50px; font-size: 20px;" >
-                    <div>
-                        <label for="pilihtahun">-pilih tahun-</label>
-                           <?php
-                            $now=date('Y');
-                            echo "<select name=’pilihtahun’>";
-                            for ($a=2016;$a<=$now;$a++)
-                            {
-                                echo "<option value='$a'>$a</option>";
-                            }
-                                echo "</select>";
-                           ?>
-                    </div>
         </div>
         <div class="navMenu">
         <li><a href="srs16.php" style="color: white;">Lulus</a></li>
@@ -43,7 +31,10 @@
 
             <?php
             $no = 1;
-            $data = mysqli_query($db,"select * from mahasiswa join skripsi on mahasiswa.skripsi_id = skripsi.skripsi_id where status ='belum'");
+            $data = mysqli_query($db,"select * from skripsi 
+            join mahasiswa on mahasiswa.skripsi_id = skripsi.skripsi_id 
+            join dosen on mahasiswa.email_dosenskripsi = dosen.email
+            where status ='belum' and email_dosenwali='$_SESSION[email]'");
             while($d = mysqli_fetch_array($data)){
                 ?>
                 <tr>

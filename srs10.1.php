@@ -17,11 +17,11 @@ if(!isset($_SESSION["email"]) ) {
     // $query    =mysqli_query($db, "SELECT * FROM mahasiswa WHERE email='$_SESSION[id_email]'");
     //     $peg    =mysqli_fetch_array($tampilPeg);
     // select * from pkl join mahasiswa on mahasiswa.pkl_id = pkl.pkl_id where status ='belum'
-    $query = "SELECT * FROM mahasiswa 
-    join kota_kab on mahasiswa.kode_kotakab = kota_kab.kode_kotakab 
+    $query = "SELECT * FROM mahasiswa
+    join kelurahan on mahasiswa.kelurahan = kelurahan.kelurahan
+    join kecamatan on kelurahan.kecamatan_id = kecamatan.kecamatan_id
+    join kota_kab on kecamatan.kode_kotakab = kota_kab.kode_kotakab
     join provinsi on kota_kab.kode_provinsi = provinsi.kode_provinsi
-    join kecamatan on kota_kab.kecamatan_id = kecamatan.kecamatan_id
-    join kelurahan on kecamatan.kelurahan_id = kelurahan.kelurahan_id
     WHERE email='$_SESSION[email]'";
     $result = $db -> query($query);
     if (!$result){

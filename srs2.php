@@ -14,7 +14,12 @@ session_start();
     // $query    =mysqli_query($db, "SELECT * FROM mahasiswa WHERE email='$_SESSION[id_email]'");
     //     $peg    =mysqli_fetch_array($tampilPeg);
     // select * from pkl join mahasiswa on mahasiswa.pkl_id = pkl.pkl_id where status ='belum'
-    $query = "SELECT * FROM mahasiswa join kota_kab on mahasiswa.kode_kotakab = kota_kab.kode_kotakab JOIN provinsi on kota_kab.kode_provinsi = provinsi.kode_provinsi WHERE email='$_SESSION[email]'";
+    $query = "SELECT * FROM mahasiswa 
+    join kelurahan on mahasiswa.kelurahan = kelurahan.kelurahan
+    join kecamatan on kelurahan.kecamatan_id = kecamatan.kecamatan_id
+    join kota_kab on kecamatan.kode_kotakab = kota_kab.kode_kotakab
+    join provinsi on kota_kab.kode_provinsi = provinsi.kode_provinsi
+    WHERE email='$_SESSION[email]'";
     $result = $db -> query($query);
     if (!$result){
         die ("Could not query the database: <br/>". $db->error ."<br>Query: ".$query);
@@ -77,7 +82,7 @@ if (isset($_POST["submit"])){
     // }
     if( isset($_POST["submit"])){
 
-      if( ubah($_POST) > 0 ){
+      if( profil($_POST) > 0 ){
           echo"
               <script>
                   alert('data berhasil diubah!');
@@ -93,6 +98,7 @@ if (isset($_POST["submit"])){
           echo mysqli_error($db);
       }
   }
+  
 }
             
 ?>
@@ -108,7 +114,7 @@ if (isset($_POST["submit"])){
   </div>
   <div class="batas">
     <h1>Pengaturan Profile</h1>
-      <form method="POST" onsubmit="return submitForm()" name="form">
+      <form action="" method="POST" onsubmit="return submitForm()" name="form" enctype="multipart/form-data">
         
       
     <div class="row khusus1 profile">
@@ -205,13 +211,26 @@ if (isset($_POST["submit"])){
           <div class="error"><?php if (isset($error_nama_provinsi)) echo $error_nama_provinsi;?></div>
         </div>
     </div>
+    
 
     <div class="col">
       <img src="img/<?php echo $foto ?>" class="rounded darwin " alt="" height="200px" width="200px">
       
-            <div class="col">
-                    <input type="text"  id="foto" name="foto" value="<?php echo $foto; ?>" style="display: flex;text-align: center;margin: auto;">
-                    <div class="error"><?php if (isset($error_foto)) echo $error_foto;?></div>
+            <div class="col" >
+            <div class="file"style="margin: 13px 75px 0;">
+              <label class="file-label">
+                <input class="file-input" type="file" name="nama_foto" id="nama_foto">
+                <span class="file-cta">
+                  <span class="file-icon">
+                    <i class="fas fa-upload"></i>
+                  </span>
+                  <span class="file-label">
+                    Pilih foto…
+                  </span>
+                </span>
+              </label>
+            </div>
+                    
                 <div class="d-flex justify-content-center tombol ">
                     <!-- <button type="button" class="btn bedit border border-secondary">Ganti</button>
                     <button type="button" class="btn bedit border border-secondary">Hapus</button> -->

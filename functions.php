@@ -23,7 +23,7 @@
         return query($query);
     }
 
-    function ubah($data){
+    function profil($data){
         global $db;
     
         $nim = $data["nim"];
@@ -35,7 +35,6 @@
         $no_hp = htmlspecialchars($data["no_hp"]);
         $alamat = htmlspecialchars($data["alamat"]);
         $nama_provinsi = htmlspecialchars($data["nama_provinsi"]);
-        $foto = htmlspecialchars($data["foto"]);
     
     
         $query = "UPDATE mahasiswa SET
@@ -44,29 +43,150 @@
                     jalur_masuk = '$jalur_masuk',
                     status_mahasiswa = '$status_mahasiswa',
                     email = '$email',
-                    no_hp = '$no_hp',
-                    foto = '$foto'
+                    alamat = '$alamat',
+                    no_hp = '$no_hp'
                     WHERE nim = $nim
             ";
     
         mysqli_query($db,$query);
+
+        //upload foto
+        
+        if(!file_exists($_FILES['nama_foto']['tmp_name']) || !is_uploaded_file($_FILES['nama_foto']['tmp_name'])) {
+            echo"
+              <script>
+                  alert('data berhasil diubah!');
+                  document.location.href='srs10.1.php';
+              </script>
+          ";
+
+        } else {
+            $direktori = "img/";
+            $file_name = $_FILES['nama_foto']['name'];
+            move_uploaded_file($_FILES['nama_foto']['tmp_name'],$direktori.$file_name);
+
+            mysqli_query($db, "UPDATE mahasiswa SET foto = '$file_name'
+                        WHERE nim = $nim
+            ");
+        }
+        
+        return mysqli_affected_rows($db);
+    }
+     
+    // function foto($data){
+    //     $direktori = "img/";
+    //     $file_name = $_FILES['nama_foto']['name'];
+    //     move_uploaded_file($_FILES['nama_foto']['tmp_name'],$direktori.$file_name);
+
+    //     mysqli_query($db, "UPDATE mahasiswa SET foto = '$file_name'
+    //                 WHERE nim = $nim
+    //     ");
+    // }
+
+    function irs($data){
+        global $db;
+        
+        //update data to database
+        $irs_id = htmlspecialchars($data["irs_id"]);
+        $semester_aktif = htmlspecialchars($data["semester_aktif"]);
+        $jumlah_sks = htmlspecialchars($data["jumlah_sks"]);
+
+        $query = "UPDATE irs SET 
+            jumlah_sks = '$jumlah_sks'
+            WHERE irs_id = $irs_id AND semester_aktif = $semester_aktif
+        ";
+    
+        mysqli_query($db,$query);
+
+        //upload file
+        $direktori = "uploadIRS/";
+        $file_name = $_FILES['nama_file']['name'];
+        move_uploaded_file($_FILES['nama_file']['tmp_name'],$direktori.$file_name);
+
+        mysqli_query($db, "UPDATE irs SET berkas_irs = '$file_name'
+                    WHERE irs_id = $irs_id
+        ");
     
         return mysqli_affected_rows($db);
     }
 
-    // function irs($data){
-    //     global $db;
+    function khs($data){
+        global $db;
+        
+        //update data to database
+        $irs_id = htmlspecialchars($data["irs_id"]);
+        // $semester_aktif = htmlspecialchars($data["semester_aktif"]);
+        // $jumlah_sks = htmlspecialchars($data["jumlah_sks"]);
+
+        // $query = "UPDATE irs SET 
+        //     jumlah_sks = '$jumlah_sks'
+        //     WHERE irs_id = $irs_id AND semester_aktif = $semester_aktif
+        // ";
     
-    //     $irs_id = htmlspecialchars($data["irs_id"]);
-    //     $semester_aktif = htmlspecialchars($data["semester_aktif"]);
-    //     $jumlah_sks = htmlspecialchars($data["jumlah_sks"]);
+        // mysqli_query($db,$query);
+
+        //upload file
+        $direktori = "uploadKHS/";
+        $file_name = $_FILES['nama_file_khs']['name'];
+        move_uploaded_file($_FILES['nama_file_khs']['tmp_name'],$direktori.$file_name);
+
+        mysqli_query($db, "UPDATE irs SET berkas_khs = '$file_name'
+                    WHERE irs_id = $irs_id
+                    ");
     
+        return mysqli_affected_rows($db);
+    }
+
+    function pkl($data){
+        global $db;
     
-    //     $query = "INSERT INTO irs
-    //     VALUES ('$irs_id','$semester_aktif','$jumlah_sks','')
-    //         ";
+        $pkl_id = htmlspecialchars($data["pkl_id"]);
+        $status_pkl = htmlspecialchars($data["status_pkl"]);
+        $nilai = htmlspecialchars($data["nilai"]);
+
+        $query = "UPDATE pkl SET 
+            status_pkl = '$status_pkl',
+            nilai = '$nilai'
+            WHERE pkl_id = $pkl_id
+        ";
     
-    //     mysqli_query($db,$query);
+        mysqli_query($db,$query);
     
-    //     return mysqli_affected_rows($db);
-    // }
+        //upload file
+        $direktori = "uploadPKL/";
+        $file_name = $_FILES['nama_file']['name'];
+        move_uploaded_file($_FILES['nama_file']['tmp_name'],$direktori.$file_name);
+
+        mysqli_query($db, "UPDATE pkl SET berkas_pkl = '$file_name'
+                    WHERE pkl_id = $pkl_id
+        ");
+
+        return mysqli_affected_rows($db);
+    }
+
+    function skripsi($data){
+        global $db;
+    
+        $skripsi_id = htmlspecialchars($data["skripsi_id"]);
+        $status_skripsi = htmlspecialchars($data["status_skripsi"]);
+        $nilai = htmlspecialchars($data["nilai"]);
+
+        $query = "UPDATE skripsi SET 
+            status_skripsi = '$status_skripsi',
+            nilai = '$nilai'
+            WHERE skripsi_id = $skripsi_id
+        ";
+    
+        mysqli_query($db,$query);
+
+        //upload file
+        $direktori = "uploadSKRIPSI/";
+        $file_name = $_FILES['nama_file']['name'];
+        move_uploaded_file($_FILES['nama_file']['tmp_name'],$direktori.$file_name);
+
+        mysqli_query($db, "UPDATE skripsi SET berkas_skripsi = '$file_name'
+                    WHERE skripsi_id = $skripsi_id
+        ");
+    
+        return mysqli_affected_rows($db);
+    }

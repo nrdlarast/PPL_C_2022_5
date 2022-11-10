@@ -17,7 +17,8 @@
         </div>
         
         <form action="" method="post">
-        <a class="btn btn-primary" href="registrasi.php">+ Add New User</a> <br><br>
+        <a class="btn btn-primary" href="registrasimahasiswa.php">+ Add Mahasiswa</a>
+        <a class="btn btn-primary" href="registrasidosen.php">+ Add Dosen</a> <br><br>
           <table class="table table-striped">
             <tr>
               <th>No</th>

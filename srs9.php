@@ -77,11 +77,11 @@
 				</div>
                 <div class="col" style="padding-left: 100px; padding-right: 100px;">
 					<div class="col" style="margin-top: 25px;margin-bottom: 10px;">
-                        <label for="status">Jumlah Mahasiswa Cuti</label>
+                        <label for="status">Jumlah Mahasiswa Mangkir</label>
 					</div>
                     <div class="col">
                     <div class="box" style="width: 200px; height: 200px; background-color: #EFEFEF; text-align:center; font-size: 75px;font-weight: 200;" >
-                        <?php $data_mahasiswa = mysqli_query($db,"select * from mahasiswa where status_mahasiswa='cuti'");
+                        <?php $data_mahasiswa = mysqli_query($db,"select * from mahasiswa where status_mahasiswa='mangkir'");
                         $jumlah_mahasiswa = mysqli_num_rows($data_mahasiswa);
                         ?>
                         <p> <b><?php echo $jumlah_mahasiswa; ?></b></p>

@@ -302,7 +302,7 @@ textarea.form-control {
 }
 
 .file.is-boxed.has-name .file-cta {
-  border-radius: 12px;
+  border-radius: 12px 12px 0 0;
   border-color: #eee;
 }
 
@@ -362,4 +362,8 @@ h1.verifikasi {
 
 .btnsmt{
   width: 7%;
+}
+
+.file-name {
+  max-width: 40em;
 }
