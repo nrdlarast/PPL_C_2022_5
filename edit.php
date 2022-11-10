@@ -82,7 +82,7 @@ if (!isset($_POST["submit"])) {
         <div class="roq">
             <div class="batas">
                 <h1>Edit</h1>
-                <h1>Data Mahasiswa</h1>
+                <h1>Data Dosen</h1>
             </div>
 
             <div class="card-body">
