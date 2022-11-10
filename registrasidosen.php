@@ -110,6 +110,16 @@ if (isset($_POST['submit'])){
             <div class="card-body">
                 <form method="POST" autocomplete="on" action="">
                     <div class="form-group">
+                        <label for="email">Email: </label>
+                        <input type="text" class="form-control" id="email" name="email" rows="5">
+                        <div class="error"><?php if (isset($error_email)) echo $error_email;?></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password: </label>
+                        <input type="text" class="form-control" id="password" name="password">
+                        <div class="error"><?php if (isset($error_password)) echo $error_password;?></div>
+                    </div>
+                    <div class="form-group">
                         <label for="nip">Nip:</label>
                         <input type="text" class="form-control" id="nip" name="nip">
                         <div class="error"><?php if(isset($error_nip)) echo $error_nip;?></div>
@@ -118,11 +128,6 @@ if (isset($_POST['submit'])){
                         <label for="nama">Nama:</label>
                         <input type="text" class="form-control" id="nama" name="nama">
                         <div class="error"><?php if(isset($error_nama)) echo $error_nama;?></div>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email: </label>
-                        <input type="text" class="form-control" id="email" name="email" rows="5">
-                        <div class="error"><?php if (isset($error_email)) echo $error_email;?></div>
                     </div>
                     <div class="form-group">
                         <label for="alamat">Alamat: </label>
@@ -138,11 +143,6 @@ if (isset($_POST['submit'])){
                         <label for="foto">Foto: </label>
                         <input type="text" class="form-control" id="foto" name="foto">
                         <div class="error"><?php if (isset($error_foto)) echo $error_foto;?></div>
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password: </label>
-                        <input type="text" class="form-control" id="password" name="password">
-                        <div class="error"><?php if (isset($error_password)) echo $error_password;?></div>
                     </div>
                     <div class="form-group">
                         <label for="peran">Peran: </label>
