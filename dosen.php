@@ -2,7 +2,7 @@
 <div class="roq">
      
     <div class="batas" style="text-align: center;font-size: 25px;font-weight: 200;">
-        <h2>Selamat Datang di Sistem Akademik Perkuliahan  <br>
+        <h2>Data Dosen  <br>
             Departemen Ilmu Komputer/Informatika <br>
             Fakultas Sains dan Matematika <br>
             2022/2023</h2> <br>
@@ -28,7 +28,7 @@
           <td><?php echo $d['nip']; ?></td>
           <td><?php echo $d['nama']; ?></td>
           <td>
-            <a class="button" href="edit2.php?id=<?php echo $d['id']; ?>">EDIT</a>
+            <a class="button" href="edit2.php?nip=<?php echo $d['nip']; ?>">EDIT</a>
           </td>
                   </tr>
                   <?php } ?>
