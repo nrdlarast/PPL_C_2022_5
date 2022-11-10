@@ -43,8 +43,10 @@
                     jalur_masuk = '$jalur_masuk',
                     status_mahasiswa = '$status_mahasiswa',
                     email = '$email',
+                    no_hp = '$no_hp',
                     alamat = '$alamat',
-                    no_hp = '$no_hp'
+                    nama_provinsi = '$nama_provinsi',
+                    nama_kotakab = '$nama_kotakab',
                     WHERE nim = $nim
             ";
     
