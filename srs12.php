@@ -22,7 +22,7 @@
         <div class="">
             <div class="row "style=" font-size: 20px;font-weight: 200; padding-left: 40px; " >
                 <div class="col"style="padding-left: 100px; padding-right: 100px; width: 33%; float: left">
-					<div class="col" style="margin-top: 10px;margin-bottom: 10px; text-align: center">
+					<div class="col" style="margin-top: 25px;margin-bottom: 10px; text-align: center">
                         <label for="status">Mahasiswa Aktif</label>
                     </div>
                     <div class="col">
