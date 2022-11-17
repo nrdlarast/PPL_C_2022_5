@@ -64,13 +64,7 @@ if (isset($_POST["submit"])) {
           }
       }
 }
-    // Include our login information
     require_once('db_login.php');
-    // execute the query
-    // $query = query($db, "SELECT * FROM mahasiswa WHERE email='$email' AND password='$password'");
-    // $query    =mysqli_query($db, "SELECT * FROM mahasiswa WHERE email='$_SESSION[id_email]'");
-    //     $peg    =mysqli_fetch_array($tampilPeg);
-    // select * from pkl join mahasiswa on mahasiswa.pkl_id = pkl.pkl_id where status ='belum'
     $query = "SELECT * FROM mahasiswa join pkl on mahasiswa.pkl_id = pkl.pkl_id WHERE email='$_SESSION[email]'";
     $result = $db -> query($query);
     if (!$result){

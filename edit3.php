@@ -1,17 +1,10 @@
 <?php include'header.html' 
 ?>
-<?php
 
-session_start();
-if(!isset($_SESSION["email"]) ) {
-    header("Location: login.php");
-    exit;
-}
-
-?>
 <?php
     // Include our login information
     require_once('db_login.php');
+    $nim = $_GET['nim']; //mendapatkan customerid yang dilewatkan ke url
     // execute the query
     // $query = query($db, "SELECT * FROM mahasiswa WHERE email='$email' AND password='$password'");
     // $query    =mysqli_query($db, "SELECT * FROM mahasiswa WHERE email='$_SESSION[id_email]'");
@@ -22,7 +15,7 @@ if(!isset($_SESSION["email"]) ) {
     join kecamatan on kelurahan.kecamatan_id = kecamatan.kecamatan_id
     join kota_kab on kecamatan.kode_kotakab = kota_kab.kode_kotakab
     join provinsi on kota_kab.kode_provinsi = provinsi.kode_provinsi
-    WHERE email='$_SESSION[email]'";
+    WHERE nim=".$nim."";
     $result = $db -> query($query);
     if (!$result){
         die ("Could not query the database: <br/>". $db->error ."<br>Query: ".$query);
@@ -48,7 +41,6 @@ if(!isset($_SESSION["email"]) ) {
             
 ?>
 <div class="container">
-    <?php include 'navbarmhs.php' ?>
   <div class="row">
     <div class="col-sm">
     <div class="flex flex-col items-center h-full overflow-hidden border-r border-grey-400 text-gray-700" style="border-color: black;">
@@ -194,27 +186,6 @@ if(!isset($_SESSION["email"]) ) {
         </div>
     </div>
 </div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $("#live_search").keyup(function(){
-            var input = $(this).val();
-            // alert(input);
-
-            if(input != ""){
-                $.ajax({
-                    url:"livesearch.php",
-                    method:"POST",
-                    data:{input:input},
-
-                    success:function(data){
-                        $("#searchresult").html(data);
-                    }
-                });
-            } else{
-                $("#searchresult").css("display","none");
-            }
-        });
-    });
-</script>
+<div class="navMenu">
+        <a href="srs8.3.php" class="">OK</a>&nbsp;&nbsp;
+</div>

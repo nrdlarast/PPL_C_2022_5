@@ -7,7 +7,7 @@
         <div class="col-10">
         <div class="roq">
              
-            <div class="batas" style="text-align: center;font-size: 25px;font-weight: 200;">
+            <div class="batas" style="text-align: center;">
                 <h2>Selamat Datang di Sistem Akademik Perkuliahan  <br>
                     Departemen Ilmu Komputer/Informatika <br>
                     Fakultas Sains dan Matematika <br>

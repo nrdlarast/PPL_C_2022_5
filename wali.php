@@ -6,16 +6,12 @@
     <div class="col-10">
         <div class="roq">
         <div class="batas" style="text-align: center;font-size: 25px;font-weight: 200;">
-                    <h2>List Daftar dan Status Mahasiswa Bimbingan Skripsi<br>
+                    <h2>List Daftar Mahasiswa Wali <br>
                     <?php echo $nama; ?> <br>
-                    Fakultas Sains dan Matematika UNDIP </h2> 
-                 </div>
+                    Fakultas Sains dan Matematika UNDIP </h2>
+                 </div> 
+        </div>
         <div class="">
-        <div class="navMenu">
-        <a href="srs16.php" class="active">Lulus</a></li>
-        <a href="16belum.php" >Belum Lulus</a></li>
-                        </div>
-
         <form action="" method="post">
           <table class="table table-striped">
             <tr>
@@ -27,9 +23,8 @@
 
             <?php
             $no = 1;
-            $data = mysqli_query($db,"select * from skripsi 
-            join mahasiswa on mahasiswa.skripsi_id = skripsi.skripsi_id 
-            where status_skripsi ='lulus' and email_dosenskripsi='$_SESSION[email]'");
+            $data = mysqli_query($db,"select * from mahasiswa
+            where email_dosenwali='$_SESSION[email]'");
             while($d = mysqli_fetch_array($data)){
                 ?>
                 <tr>

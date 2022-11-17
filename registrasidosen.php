@@ -8,9 +8,13 @@ function tambahData($data){
     $email = htmlspecialchars($data["email"]);
     $alamat = htmlspecialchars($data["alamat"]);
     $no_hp = htmlspecialchars($data["no_hp"]);
-    $foto = htmlspecialchars($data["foto"]);
     $password = htmlspecialchars($data["password"]);
     $peran = htmlspecialchars($data["peran"]);
+
+    $direktori = "img/";
+    $file_name = $_FILES['foto']['name'];
+    move_uploaded_file($_FILES['foto']['tmp_name'],$direktori.$file_name);
+
     $query = "INSERT INTO dosen
             VALUES (
                 '$nip','$nama','$email','$alamat','$no_hp','$foto'
@@ -67,11 +71,11 @@ if (isset($_POST['submit'])){
         $error_no_hp = "no_hp is required";
         $valid = FALSE;
     }
-    $foto = test_input ($_POST['foto']); 
-    if ($foto == ''){
-        $error_foto = "foto is required";
-        $valid = FALSE;
-    }
+    // $foto = test_input ($_POST['foto']); 
+    // if ($foto == ''){
+    //     $error_foto = "foto is required";
+    //     $valid = FALSE;
+    // }
     $password = test_input ($_POST['password']); 
     if ($password == ''){
         $error_password = "password is required";
@@ -108,7 +112,17 @@ if (isset($_POST['submit'])){
             </div>
 
             <div class="card-body">
-                <form method="POST" autocomplete="on" action="">
+                <form method="POST" autocomplete="on" action="" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="email">Email: </label>
+                        <input type="text" class="form-control" id="email" name="email" rows="5">
+                        <div class="error"><?php if (isset($error_email)) echo $error_email;?></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password: </label>
+                        <input type="text" class="form-control" id="password" name="password">
+                        <div class="error"><?php if (isset($error_password)) echo $error_password;?></div>
+                    </div>
                     <div class="form-group">
                         <label for="nip">Nip:</label>
                         <input type="text" class="form-control" id="nip" name="nip">
@@ -120,11 +134,6 @@ if (isset($_POST['submit'])){
                         <div class="error"><?php if(isset($error_nama)) echo $error_nama;?></div>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email: </label>
-                        <input type="text" class="form-control" id="email" name="email" rows="5">
-                        <div class="error"><?php if (isset($error_email)) echo $error_email;?></div>
-                    </div>
-                    <div class="form-group">
                         <label for="alamat">Alamat: </label>
                         <textarea class="form-control" id="alamat" name="alamat" rows="5"></textarea>
                         <div class="error"><?php if (isset($error_alamat)) echo $error_alamat;?></div>
@@ -134,15 +143,22 @@ if (isset($_POST['submit'])){
                         <input type="text" class="form-control" id="no_hp" name="no_hp">
                         <div class="error"><?php if (isset($error_no_hp)) echo $error_no_hp;?></div>
                     </div>
-                    <div class="form-group">
-                        <label for="foto">Foto: </label>
-                        <input type="text" class="form-control" id="foto" name="foto">
-                        <div class="error"><?php if (isset($error_foto)) echo $error_foto;?></div>
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password: </label>
-                        <input type="text" class="form-control" id="password" name="password">
-                        <div class="error"><?php if (isset($error_password)) echo $error_password;?></div>
+                    <div class="col-5">
+                    <label for="foto">Foto:</label>
+                    <div id="file-js-example" class="file has-name is-boxed">
+                        <label class="file-label">
+                            <input class="file-input" type="file" name="foto" id="foto">
+
+                            <span class="file-cta">
+                                <span class="file-icon">
+                                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                                </span>
+                                <span class="file-label">
+                                    Choose a file…
+                                </span>
+                            </span>
+                            <span class="file-name">No file uploaded</span>
+                        </label>
                     </div>
                     <div class="form-group">
                         <label for="peran">Peran: </label>
@@ -156,3 +172,12 @@ if (isset($_POST['submit'])){
             </div>
         </div>
     </div>
+    <script>
+        const fileInput = document.querySelector('#file-js-example input[type=file]');
+        fileInput.onchange = () => {
+            if (fileInput.files.length > 0) {
+            const fileName = document.querySelector('#file-js-example .file-name');
+            fileName.textContent = fileInput.files[0].name;
+            }
+        }
+    </script>

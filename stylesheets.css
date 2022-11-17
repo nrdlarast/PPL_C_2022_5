@@ -223,9 +223,14 @@ a {
 .batas h1 {
   font-weight: 600;
   font-size: 39px;
-  color: black
+  color: black;
 }
-
+.batas h2 {
+  font-weight: 600;
+  font-size: 25px;
+  color: black;
+  margin-bottom: 20px;
+}
 .profile input{
   color: #5B5B5B;
   background-color: white;

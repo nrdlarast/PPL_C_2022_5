@@ -26,7 +26,6 @@
               <th>Email</th>
               <th>Password</th>
               <th>Peran</th>
-              <th>More</th>
             </tr>
 
             <?php
@@ -40,9 +39,6 @@
                   <td><?php echo $d['email']; ?></td>
                   <td><?php echo $d['password']; ?></td>
                   <td><?php echo $d['peran']; ?></td>
-                  <td>
-                    <a href="edit.php?id=<?php echo $d['email']; ?>">EDIT</a>
-                  </td>
                           </tr>
                           <?php } ?>
           </table>

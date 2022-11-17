@@ -143,12 +143,12 @@ if (isset($_POST["submit"])) {
             </div>
             <div class="form-group col"> 
                 <label for="ip_semester">IP Semester</label>
-                <input type="text" class="form-control" id="ip_semester" name="ip_semester" value="<?php echo $ip_semester; ?>" readonly>
+                <input type="text" class="form-control" id="ip_semester" name="ip_semester" value="<?php echo $ip_semester; ?>">
                 <div class="error"><?php if(isset($error_ip_semester)) echo $error_ip_semester;?></div>
             </div>
             <div class="form-group col"> 
                 <label for="ip_kumulatif">IP Kumulatif</label>
-                <input type="text" class="form-control" id="ip_kumulatif" name="ip_kumulatif" value="<?php echo $ip_kumulatif; ?>" readonly>
+                <input type="text" class="form-control" id="ip_kumulatif" name="ip_kumulatif" value="<?php echo $ip_kumulatif; ?>">
                 <div class="error"><?php if(isset($error_ip_kumulatif)) echo $error_ip_kumulatif;?></div>
             </div>
         </div>

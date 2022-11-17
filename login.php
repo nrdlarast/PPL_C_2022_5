@@ -128,8 +128,8 @@ if (isset($_POST["submit"])){
       <div>
         <?php if (isset($error_login)) echo $error_login; ?></p>
       </div>
-      <!-- <button type="button" class="btn btn-primary blogin" name="submit" value="submit">Login</button> -->
-      <button type="submit" class="btn btn-primary blogin" name="submit" value="submit" ">Login</button>
+      
+      <button type="submit" class="btn btn-primary blogin" name="submit" value="submit" >Login</button>
     </div>
     <!-- <div class="col pfp">
       <div class="col">

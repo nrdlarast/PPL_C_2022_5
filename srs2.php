@@ -1,28 +1,19 @@
-<?php include'header_mhs.html'?>
-<?php
-require 'functions.php';
+<?php 
+require_once('db_login.php');
 session_start();
-// if(!isset($_SESSION["login"]) ) {
-//     header("Location: login.php");
-//     exit;
-// }
 
-    // Include our login information
-    require_once('db_login.php');
-    // execute the query
-    // $query = query($db, "SELECT * FROM mahasiswa WHERE email='$email' AND password='$password'");
-    // $query    =mysqli_query($db, "SELECT * FROM mahasiswa WHERE email='$_SESSION[id_email]'");
-    //     $peg    =mysqli_fetch_array($tampilPeg);
-    // select * from pkl join mahasiswa on mahasiswa.pkl_id = pkl.pkl_id where status ='belum'
+//mengecek apakah user belum menekan tombol submit 
+if (!isset($_POST["submit"])) {
     $query = "SELECT * FROM mahasiswa 
-    join kelurahan on mahasiswa.kelurahan = kelurahan.kelurahan
+    join kelurahan on mahasiswa.kelurahan_id = kelurahan.kelurahan_id
     join kecamatan on kelurahan.kecamatan_id = kecamatan.kecamatan_id
     join kota_kab on kecamatan.kode_kotakab = kota_kab.kode_kotakab
     join provinsi on kota_kab.kode_provinsi = provinsi.kode_provinsi
     WHERE email='$_SESSION[email]'";
-    $result = $db -> query($query);
-    if (!$result){
-        die ("Could not query the database: <br/>". $db->error ."<br>Query: ".$query);
+    // Execute the query
+    $result = $db->query($query);
+    if (!$result) {
+        die ("Could not query the database: <br />". $db->error);
     } else { 
         while ($row = $result->fetch_object()) {
             $nama = $row->nama; 
@@ -30,78 +21,128 @@ session_start();
             $email = $row->email;
             $no_hp = $row->no_hp;
             $foto = $row->foto;
-            $ipk = $row->ipk;
             $jalur_masuk = $row->jalur_masuk;
             $angkatan = $row->angkatan;
+            $kelurahan = $row->kelurahan;
+            $kecamatan = $row->kecamatan;
             $status_mahasiswa = $row->status_mahasiswa;
             $alamat = $row->alamat;
-            $nama_kotakab = $row->nama_kotakab;
-            $nama_provinsi = $row->nama_provinsi;
-            }
+            $nama_kotakab = $row ->nama_kotakab;
+            $nama_provinsi = $row ->nama_provinsi;
         }
-//mengecek apakah user belum menekan tombol submit 
-if (isset($_POST["submit"])){
+    }
+} else {
     $valid = TRUE; //flag validasi
-    // $name = test_input ($_POST['name']);
-    // if ($name == '') {
-    //     $error_nama = "Name is required";
-    //     $valid = FALSE; 
-    // } elseif (!preg_match("/^[a-zA-Z ]*$/", $nama)) {
-    //     $error_nama = "Only letters and white space allowed"; 
-    //     $valid = FALSE;
-    // }
-    // $nim = test_input ($_POST['nim']); 
-    // if ($address == ''){
-    //     $error_address = "NIM is required";
-    //     $valid = FALSE;
-    // }
-    // $address = test_input ($_POST['address']); 
-    // if ($address == ''){
-    //     $error_address = "Address is required";
-    //     $valid = FALSE;
-    // }
-    // $city = $_POST['city'];
-    // if ($city == '' || $city == 'none') {
-    //     $error_city = "City is required";
-    //     $valid = FALSE;
-    // }
+    $nim = test_input ($_POST['nim']); 
+    if ($nim == ''){
+        $error_nim = "Address is required";
+        $valid = FALSE;
+    }
+    
+    $nama = test_input ($_POST['nama']);
+    if ($nama == '') {
+        $error_nama = "Nama is required";
+        $valid = FALSE; 
+    } elseif (!preg_match("/^[a-zA-Z ]*$/", $nama)) {
+        $error_nama = "Only letters and white space allowed"; 
+        $valid = FALSE;
+    }
+    $email = test_input($_POST['email']);
+    if ($email == ''){
+        $error_email = "Email is required";
+        $valid = FALSE;
+    } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
+        $error_email = "Invalid email format";
+        $valid = FALSE;
+    }
+    $alamat = test_input ($_POST['alamat']); 
+    if ($alamat == ''){
+        $error_alamat = "alamat is required";
+        $valid = FALSE;
+    }
+    $no_hp = test_input ($_POST['no_hp']); 
+    if ($no_hp == ''){
+        $error_no_hp = "no_hp is required";
+        $valid = FALSE;
+    }
+    $jalur_masuk = test_input ($_POST['jalur_masuk']); 
+    if ($jalur_masuk == ''){
+        $error_jalur_masuk = "jalur_masuk is required";
+        $valid = FALSE;
+    }
+    $nama_kotakab = test_input ($_POST['nama_kotakab']); 
+    if ($nama_kotakab == ''){
+        $error_nama_kotakab = "nama_kotakab is required";
+        $valid = FALSE;
+    }
+    $kelurahan = test_input ($_POST['kelurahan']); 
+    if ($kelurahan == ''){
+        $error_kelurahan = "kelurahan is required";
+        $valid = FALSE;
+    }
+    $nama_provinsi = test_input ($_POST['nama_provinsi']); 
+    if ($nama_provinsi == ''){
+        $error_nama_provinsi = "nama_provinsi is required";
+        $valid = FALSE;
+    }
+    $angkatan = test_input ($_POST['angkatan']); 
+    if ($angkatan == ''){
+        $error_angkatan = "angkatan is required";
+        $valid = FALSE;
+    }
+    $kecamatan = test_input ($_POST['kecamatan']); 
+    if ($kecamatan == ''){
+        $error_kecamatan = "kecamatan is required";
+        $valid = FALSE;
+    }
+    $status_mahasiswa = test_input ($_POST['status_mahasiswa']); 
+    if ($status_mahasiswa == ''){
+        $error_status_mahasiswa = "status_mahasiswa is required";
+        $valid = FALSE;
+    }
     //update data into database
-    // if ($valid) {
-    //     //escape inputs data
-    //     $address = $db->real_escape_string($address);
-    //     //Asign a query
-    //     $query = " UPDATE customers SET nama='". $nama."' WHERE nim=".$nim." ";
-    //     // Execute the query
-    //     $result = $db->query($query);
-    //     if (!$result) {
-    //         die ("Could not query the database: <br />". $db->error. '<br>query:' . $query);
-    //     }else{
-    //         $db->close();
-    //         header('Location: view_customer.php');
-    //     }
-    // }
-    if( isset($_POST["submit"])){
-
-      if( profil($_POST) > 0 ){
-          echo"
+    if ($valid) {
+        $query = "UPDATE mahasiswa 
+        join kelurahan on mahasiswa.kelurahan_id = kelurahan.kelurahan_id 
+        join kecamatan on kelurahan.kecamatan_id = kecamatan.kecamatan_id
+        join kota_kab on kecamatan.kode_kotakab = kota_kab.kode_kotakab
+        join provinsi on kota_kab.kode_provinsi = provinsi.kode_provinsi
+        SET kecamatan='". $kecamatan."',kelurahan='". $kelurahan."',nama_kotakab='". $nama_kotakab."',nama_provinsi='". $nama_provinsi."', status_mahasiswa='". $status_mahasiswa."', angkatan='". $angkatan."', jalur_masuk='". $jalur_masuk."', nama='". $nama."', email='". $email."', alamat='". $alamat."', no_hp='". $no_hp."' WHERE nim=".$nim." ";
+        $result = $db->query($query);   
+        if(!file_exists($_FILES['nama_foto']['tmp_name']) || !is_uploaded_file($_FILES['nama_foto']['tmp_name'])) {
+            echo"
               <script>
                   alert('data berhasil diubah!');
                   document.location.href='srs10.1.php';
               </script>
           ";
-      } else {
-          echo"
-              <script>
-                  alert('data gagal diubah!');
-              </script>
-          ";
-          echo mysqli_error($db);
-      }
-  }
-  
-}
+
+        } else {
+            $direktori = "img/";
+            $file_name = $_FILES['nama_foto']['name'];
+            move_uploaded_file($_FILES['nama_foto']['tmp_name'],$direktori.$file_name);
+
+            mysqli_query($db, "UPDATE mahasiswa SET foto = '$file_name'
+                        WHERE nim = $nim
+            ");
+            echo"
+            <script>
+                alert('data berhasil diubah!');
+                document.location.href='srs10.1.php';
+            </script>
+        ";
+        } 
             
+        // if (!$result) {
+        //     die ("Could not query the database: <br />". $db->error. '<br>query:' . $query);
+        // }else{
+        //     $db->close();
+        //     header('Location: srs10.1.php');
+        // }
+    }
+}
 ?>
+<?php include 'header.html' ?>
 <div class="container">
   <div class="navMenu">
   <div class="navMenu">
@@ -203,6 +244,16 @@ if (isset($_POST["submit"])){
           <label for="kabkot">Kabupaten/Kota</label>
           <input type="text" class="form-control" id="nama_kotakab" name="nama_kotakab" value="<?php echo $nama_kotakab; ?>">
           <div class="error"><?php if (isset($error_nama_kotakab)) echo $error_nama_kotakab;?></div>
+        </div>
+        <div class="form-group col">
+          <label for="kabkot">Kecamatan</label>
+          <input type="text" class="form-control" id="kecamatan" name="kecamatan" value="<?php echo $kecamatan; ?>">
+          <div class="error"><?php if (isset($error_kecamatan)) echo $error_kecamatan;?></div>
+        </div>
+        <div class="form-group col">
+          <label for="kabkot">Kelurahan</label>
+          <input type="text" class="form-control" id="kelurahan" name="kelurahan" value="<?php echo $kelurahan; ?>">
+          <div class="error"><?php if (isset($error_kelurahan)) echo $error_kelurahan;?></div>
         </div>
 
         <div class="form-group col">

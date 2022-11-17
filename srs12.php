@@ -85,17 +85,6 @@
         <div class="col-sm">
         <div class="roq">
         
-            <div class="batas" style="text-align: center;font-size: 25px;font-weight: 200;">
-                <h2>Pengumuman</h2>
-                
-                <div class="batas" style="padding-left: 50px;padding-right: 100px;">
-                <div class="box" style="width: 1250px; height: 150px;" >
-                        <div style="margin-top: 10px;text-align:center; font-size: 20px;font-weight: 200;"> 
-                                <label> Menindaklanjuti laporan adanya mahasiswa yang terpapar positif Covid, kami mohon agar perkuliahan dari tanggal 8 sampai dengan 14 Sept 2022 dilaksanakan secara daring /online. Selama masa kuliah online tersebut akan dilakukan penyemprotan disfektan untuk menanggulangi penyebaran Covid 19. 
-Terima kasih 🙏 </label>
-                        </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>

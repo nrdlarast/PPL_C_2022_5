@@ -11,7 +11,6 @@ function tambahData($data){
     $no_hp = htmlspecialchars($data["no_hp"]);
     $angkatan = htmlspecialchars($data["angkatan"]);
     $jalur_masuk = htmlspecialchars($data["jalur_masuk"]);
-    $foto = htmlspecialchars($data["foto"]);
     $ipk = htmlspecialchars($data["ipk"]);
     $email_dosenwali = htmlspecialchars($data["email_dosenwali"]);
     $email_dosenpkl = htmlspecialchars($data["email_dosenpkl"]);
@@ -23,9 +22,14 @@ function tambahData($data){
     $skripsi_id = htmlspecialchars($data["skripsi_id"]);
     $password = htmlspecialchars($data["password"]);
     $peran = htmlspecialchars($data["peran"]);
+
+    $direktori = "img/";
+    $file_name = $_FILES['foto']['name'];
+    move_uploaded_file($_FILES['foto']['tmp_name'],$direktori.$file_name);
+
     $query = "INSERT INTO mahasiswa
             VALUES (
-                '$nim','$nama','$email','$status_mahasiswa','$alamat','$no_hp','$angkatan','$jalur_masuk','$foto','$ipk','$email_dosenwali','$email_dosenpkl','$email_dosenskripsi','$kelurahan','$irs_id','$khs_id','$pkl_id','$skripsi_id'
+                '$nim','$nama','$email','$status_mahasiswa','$alamat','$no_hp','$angkatan','$jalur_masuk','$file_name','$ipk','$email_dosenwali','$email_dosenpkl','$email_dosenskripsi','$kelurahan','$irs_id','$khs_id','$pkl_id','$skripsi_id'
             )";
     // mysqli_query($db,$query)
     $query1 = "INSERT INTO user
@@ -94,11 +98,11 @@ if (isset($_POST['submit'])){
         $error_jalur_masuk = "jalur_masuk is required";
         $valid = FALSE;
     }
-    $foto = test_input ($_POST['foto']); 
-    if ($foto == ''){
-        $error_foto = "foto is required";
-        $valid = FALSE;
-    }
+    // $foto = test_input ($_POST['foto']); 
+    // if ($foto == ''){
+    //     $error_foto = "foto is required";
+    //     $valid = FALSE;
+    // }
     $ipk = test_input ($_POST['ipk']); 
     if ($ipk == ''){
         $error_ipk = "ipk is required";
@@ -155,7 +159,7 @@ if (isset($_POST['submit'])){
             </div>
 
             <div class="card-body">
-                <form method="POST" autocomplete="on" action="">
+                <form method="POST" autocomplete="on" action="" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="email">Email: </label>
                         <input type="text" class="form-control" id="email" name="email">
@@ -235,10 +239,27 @@ if (isset($_POST['submit'])){
                             </select>
                         <div class="error"><?php if (isset($error_jalur_masuk)) echo $error_jalur_masuk;?></div>
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="foto">Foto: </label>
                         <input type="text" class="form-control" id="foto" name="foto">
                         <div class="error"><?php if (isset($error_foto)) echo $error_foto;?></div>
+                    </div> -->
+                    <div class="col-5">
+                    <label for="foto">Foto:</label>
+                    <div id="file-js-example" class="file has-name is-boxed">
+                        <label class="file-label">
+                            <input class="file-input" type="file" name="foto" id="foto">
+
+                            <span class="file-cta">
+                                <span class="file-icon">
+                                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                                </span>
+                                <span class="file-label">
+                                    Choose a file…
+                                </span>
+                            </span>
+                            <span class="file-name">No file uploaded</span>
+                        </label>
                     </div>
                     <div class="form-group">
                         <label for="ipk">IPK: </label>
@@ -330,3 +351,13 @@ if (isset($_POST['submit'])){
             </div>
         </div>
     </div>
+
+    <script>
+        const fileInput = document.querySelector('#file-js-example input[type=file]');
+        fileInput.onchange = () => {
+            if (fileInput.files.length > 0) {
+            const fileName = document.querySelector('#file-js-example .file-name');
+            fileName.textContent = fileInput.files[0].name;
+            }
+        }
+    </script>

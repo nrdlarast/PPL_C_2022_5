@@ -19,7 +19,33 @@
 	</div>
 </div>
 
-    <div id="searchresult"></div>
+    <div id="searchresult">
+            <table class="table table-striped">
+                <tr>
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>NIM</th>
+                    <th>More</th>
+                </tr>
+
+                <?php
+                $no = 1;
+                $result = mysqli_query($db,'SELECT * FROM mahasiswa');
+                while($row = mysqli_fetch_assoc($result)){ 
+                    $nama = $row['nama'];
+                    $nim = $row['nim'];
+                ?>
+                    <tr>
+                        <td><?php echo $no++; ?></td>
+                        <td><?php echo $nama; ?></td>
+                        <td><?php echo $nim; ?></td>
+                        <td>
+                            <a class="button" href="edit5.php?nim=<?= $row['nim']; ?>">More</a>
+                        </td>
+                    </tr>
+                    <?php } ?>
+            </table>
+    </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">
