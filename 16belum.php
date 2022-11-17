@@ -14,6 +14,20 @@
                  </div>
         </div>
         <div class="">
+            <!-- <div class="row "style=" padding-block: 50px; padding-left: 50px; font-size: 20px;" >
+                    <div>
+                        <label for="pilihtahun">-pilih tahun-</label>
+                           <?php
+                            $now=date('Y');
+                            echo "<select name=’pilihtahun’>";
+                            for ($a=2016;$a<=$now;$a++)
+                            {
+                                echo "<option value='$a'>$a</option>";
+                            }
+                                echo "</select>";
+                           ?>
+                    </div>
+        </div> -->
         <div class="navMenu">
         <a href="srs16.php">Lulus</a></li>
         <a href="16belum.php" class="active">Belum Lulus</a></li>

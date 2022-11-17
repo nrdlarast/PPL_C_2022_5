@@ -124,6 +124,16 @@ if (isset($_POST['submit'])){
                         <div class="error"><?php if (isset($error_password)) echo $error_password;?></div>
                     </div>
                     <div class="form-group">
+                        <label for="email">Email: </label>
+                        <input type="text" class="form-control" id="email" name="email" rows="5">
+                        <div class="error"><?php if (isset($error_email)) echo $error_email;?></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password: </label>
+                        <input type="text" class="form-control" id="password" name="password">
+                        <div class="error"><?php if (isset($error_password)) echo $error_password;?></div>
+                    </div>
+                    <div class="form-group">
                         <label for="nip">Nip:</label>
                         <input type="text" class="form-control" id="nip" name="nip">
                         <div class="error"><?php if(isset($error_nip)) echo $error_nip;?></div>
