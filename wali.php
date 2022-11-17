@@ -5,7 +5,7 @@
     </div>
     <div class="col-10">
         <div class="roq">
-        <div class="batas" style="text-align: center;font-size: 25px;font-weight: 200;">
+        <div class="batas" style="text-align: center;font-size: 25px;font-weight: 200; margin-bottom:70px;">
                     <h2>List Daftar Mahasiswa Wali <br>
                     <?php echo $nama; ?> <br>
                     Fakultas Sains dan Matematika UNDIP </h2>

@@ -8,9 +8,10 @@
     </div>
         <div class="col-10">
         <div class="roq">
-            <div class="batas">
-                <!-- <h1>Profil Akun</h1> -->
-            </div>
+            <div class="batas" style="text-align: center;font-size: 25px;font-weight: 200; margin-bottom: 70px;">
+                <h2>Selamat Datang di Sistem Akademik Perkuliahan  <br>
+                <?php echo $nama; ?> </h2>
+            </div> 
         </div>
             <div class="">
             <div class="row "style=" font-size: 20px;font-weight: 200; padding-left: 40px;" >

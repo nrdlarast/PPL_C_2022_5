@@ -31,13 +31,9 @@ if (!isset($_POST["submit"])) {
     if ($nama == '') {
         $error_nama = "Nama is required";
         $valid = FALSE; 
-    } elseif (!preg_match("/^[a-zA-Z ]*$/", $nama)) {
-        $error_nama = "Only letters and white space allowed"; 
-        $valid = FALSE;
-    }
-    // $status_irs = test_input ($_POST['status_irs']); 
-    // if ($status_irs == ''){
-    //     $error_status_irs = "status_irs is required";
+    } 
+    // elseif (!preg_match("/^[a-zA-Z ]*$/", $nama)) {
+    //     $error_nama = "Only letters and white space allowed"; 
     //     $valid = FALSE;
     // }
     $email = test_input($_POST['email']);
@@ -58,17 +54,17 @@ if (!isset($_POST["submit"])) {
         $error_no_hp = "no_hp is required";
         $valid = FALSE;
     }
-    $foto = test_input ($_POST['foto']); 
-    if ($foto == ''){
-        $error_foto = "foto is required";
-        $valid = FALSE;
-    }
+    // $foto = test_input ($_POST['foto']); 
+    // if ($foto == ''){
+    //     $error_foto = "foto is required";
+    //     $valid = FALSE;
+    // }
     //update data into database
     if ($valid) {
         $direktori = "img/";
         $file_name = $_FILES['foto']['name'];
         move_uploaded_file($_FILES['foto']['tmp_name'],$direktori.$file_name);
-        
+
         $query = "UPDATE dosen SET nip='". $nip."', nama='". $nama."', email='". $email."', alamat='". $alamat."', no_hp='". $no_hp."', foto='". $file_name."' WHERE nip=".$nip." ";
         // Execute the query
         $result = $db->query($query);
@@ -93,7 +89,7 @@ if (!isset($_POST["submit"])) {
             </div>
 
             <div class="card-body">
-                <form method="POST" autocomplete="on" action="">
+                <form method="POST" autocomplete="on" action="" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="nip">Nip:</label>
                         <input type="text" class="form-control" id="nip" name="nip" value="<?php echo $nip; ?>"readonly>

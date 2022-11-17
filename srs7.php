@@ -68,7 +68,7 @@ if (!isset($_POST["submit"])) {
         join khs on mahasiswa.khs_id = khs.khs_id
         join pkl on mahasiswa.pkl_id = pkl.pkl_id
         join skripsi on mahasiswa.skripsi_id = skripsi.skripsi_id
-        SET  status_irs='". $status_irs."', status_khs='". $status_khs."', status_pkl='". $status_pkl."', status_skripsi='". $status_skripsi."' WHERE nim=".$nim." ";
+        SET status_irs='". $status_irs."', status_khs='". $status_khs."', status_pkl='". $status_pkl."', status_skripsi='". $status_skripsi."' WHERE nim=".$nim." ";
         // Execute the query
         $result = $db->query($query);
         if (!$result) {
