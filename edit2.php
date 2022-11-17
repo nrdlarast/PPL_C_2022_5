@@ -59,17 +59,16 @@ if (!isset($_POST["submit"])) {
         $valid = FALSE;
     }
     $foto = test_input ($_POST['foto']); 
-    // if ($foto == ''){
-    //     $error_foto = "foto is required";
-    //     $valid = FALSE;
-    // }
+    if ($foto == ''){
+        $error_foto = "foto is required";
+        $valid = FALSE;
+    }
     //update data into database
     if ($valid) {
         $direktori = "img/";
         $file_name = $_FILES['foto']['name'];
         move_uploaded_file($_FILES['foto']['tmp_name'],$direktori.$file_name);
-        //escape inputs data
-        //Asign a query
+        
         $query = "UPDATE dosen SET nip='". $nip."', nama='". $nama."', email='". $email."', alamat='". $alamat."', no_hp='". $no_hp."', foto='". $file_name."' WHERE nip=".$nip." ";
         // Execute the query
         $result = $db->query($query);
@@ -82,34 +81,78 @@ if (!isset($_POST["submit"])) {
     }
 }
 ?>
-<?php
-    require_once('db_login.php');        
-?>
-
-    <div class="row">
-        <div class="col-sm">
-        <?php include 'navbardepartemen.php' ?>
-
-        </div>
-            <div class="col-10">
-            <div class="roq">
-                
-                <div class="batas" style="text-align: center;font-size: 25px;font-weight: 200;">
-                    <h2>Selamat Datang di Sistem Akademik Perkuliahan  <br>
-                        Departemen Ilmu Komputer/Informatika <br>
-                        Fakultas Sains dan Matematika <br>
-                        2022/2023</h2> <br>
-                </div> 
-                
-                <div class="col-2">Edit Data</div>
-                <div class="col-4">
-                    <input type="text" value=" ">
-                </div>
-            </div>
-            </div>
-        
-        <!-- <div class="col-4"><input type="text" value="<?php echo  htmlentities($row['categoryName']);?>"  name="category" class="form-control" required></div>
-     -->
+<?php include 'header.html' ?>
+  <div class="row">
+    <div class="col-sm">
     </div>
+    <div class="col-10">
+        <div class="roq">
+            <div class="batas">
+                <h1>Edit</h1>
+                <h1>Data Dosen</h1>
+            </div>
 
+            <div class="card-body">
+                <form method="POST" autocomplete="on" action="">
+                    <div class="form-group">
+                        <label for="nip">Nip:</label>
+                        <input type="text" class="form-control" id="nip" name="nip" value="<?php echo $nip; ?>"readonly>
+                        <div class="error"><?php if(isset($error_nip)) echo $error_nip;?></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="nama">Nama:</label>
+                        <input type="text" class="form-control" id="nama" name="nama" value="<?php echo $nama; ?>">
+                        <div class="error"><?php if(isset($error_nama)) echo $error_nama;?></div>
+                    </div>
+                    <div class="col" style="margin-top: 25px;margin-bottom: 10px;">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" id="email" name="email" value="<?php echo $email; ?>">
+                        <div class="error"><?php if(isset($error_email)) echo $error_email;?></div>
+					</div>
+                    <div class="form-group">
+                        <label for="address">Address: </label>
+                        <textarea class="form-control" id="alamat" name="alamat" rows="5" ><?php echo $alamat;?></textarea>
+                        <div class="error"><?php if (isset($error_alamat)) echo $error_alamat;?></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="nohandphone">No.Handphone</label>
+                        <input type="text" class="form-control" id="no_hp" name="no_hp" value="<?php echo $no_hp; ?>">
+                        <div class="error"><?php if(isset($error_no_hp)) echo $error_no_hp;?></div>
+                    </div>
+                    <div class="col-5">
+                    <label for="foto">Foto:</label>
+                    <div id="file-js-example" class="file has-name is-boxed">
+                        <label class="file-label">
+                            <input class="file-input" type="file" name="foto" id="foto">
 
+                            <span class="file-cta">
+                                <span class="file-icon">
+                                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                                </span>
+                                <span class="file-label">
+                                    Choose a file…
+                                </span>
+                            </span>
+                            <span class="file-name">No file uploaded</span>
+                        </label>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary" name="submit" value="submit">Submit</button>
+                    <a href="srs23.php" class="btn btn-secondary">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        const fileInput = document.querySelector('#file-js-example input[type=file]');
+        fileInput.onchange = () => {
+            if (fileInput.files.length > 0) {
+            const fileName = document.querySelector('#file-js-example .file-name');
+            fileName.textContent = fileInput.files[0].name;
+            }
+        }
+    </script>
+<?php
+$db->close();
+?>
+    

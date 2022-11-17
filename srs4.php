@@ -72,16 +72,20 @@ if (isset($_POST["submit"])) {
     // $query    =mysqli_query($db, "SELECT * FROM mahasiswa WHERE email='$_SESSION[id_email]'");
     //     $peg    =mysqli_fetch_array($tampilPeg);
     // select * from pkl join mahasiswa on mahasiswa.pkl_id = pkl.pkl_id where status ='belum'
-    $query = "SELECT * FROM mahasiswa join irs on mahasiswa.irs_id = irs.irs_id WHERE email='$_SESSION[email]' AND semester_aktif = 1";
-    $query_sum = "SELECT SUM(jumlah_sks) as sum FROM mahasiswa join irs on mahasiswa.irs_id = irs.irs_id WHERE email='$_SESSION[email]'";
+    $query = "SELECT * FROM mahasiswa 
+                JOIN irs ON mahasiswa.irs_id = irs.irs_id WHERE email='$_SESSION[email]' AND semester_aktif = 1";
+    $query_sum = "SELECT SUM(jumlah_sks) as sum FROM mahasiswa JOIN irs ON mahasiswa.irs_id = irs.irs_id WHERE email='$_SESSION[email]'";
+    $query_ip = "SELECT ROUND(AVG(ip_semester),2) as avg FROM mahasiswa JOIN irs ON mahasiswa.irs_id = irs.irs_id WHERE email='$_SESSION[email]'";
     $result = $db -> query($query);
     $result_sum = $db -> query($query_sum);
+    $result_ip = $db -> query($query_ip);
 
     if (!$result){
         die ("Could not query the database: <br/>". $db->error ."<br>Query: ".$query);
     } else { 
         while ($row = $result->fetch_object()) {
             $irs_id = $row->irs_id;
+            $khs_id = $row->khs_id;
             $jumlah_sks = $row->jumlah_sks;
             $semester_aktif = $row->semester_aktif;
             $sks_kumulatif = $row->sks_kumulatif;
@@ -92,6 +96,9 @@ if (isset($_POST["submit"])) {
         }
         while ($row = $result_sum->fetch_object()){
             $hasilsum = $row->sum;
+        }
+        while ($row = $result_ip->fetch_object()){
+            $hasilip = $row->avg;
         }
     }
 
@@ -130,25 +137,27 @@ if (isset($_POST["submit"])) {
             </div>
 
             <div class="form-group col"> 
-                <label for="jmlsks">Jumlah SKS Semester</label>
+                <label for="jumlah_sks">Jumlah SKS Semester</label>
                 <div id="container_sks">
-                                <input type="type" class="form-control" id="jumlah_sks" name="jumlah_sks" value="<?php echo $jumlah_sks; ?>">
-                            </div>
+                    <input type="type" class="form-control" id="jumlah_sks" name="jumlah_sks" value="<?php echo $jumlah_sks; ?>">
+                </div>
                 <div class="error"><?php if(isset($error_sks_semester)) echo $error_sks_semester;?></div>
             </div>
             <div class="form-group col"> 
                 <label for="sks_kumulatif">Jumlah SKS Kumulatif</label>
-                <input type="text" class="form-control" id="sks_kumulatif" name="sks_kumulatif" value="<?php echo $hasilsum; ?>">
+                <input type="text" class="form-control" id="sks_kumulatif" name="sks_kumulatif" value="<?php echo $hasilsum; ?>" readonly>
                 <div class="error"><?php if(isset($error_sks_kumulatif)) echo $error_sks_kumulatif;?></div>
             </div>
             <div class="form-group col"> 
                 <label for="ip_semester">IP Semester</label>
-                <input type="text" class="form-control" id="ip_semester" name="ip_semester" value="<?php echo $ip_semester; ?>">
+                <div id="container_ips">
+                    <input type="type" class="form-control" id="ip_semester" name="ip_semester" value="<?php echo $ip_semester; ?>">
+                </div>
                 <div class="error"><?php if(isset($error_ip_semester)) echo $error_ip_semester;?></div>
             </div>
             <div class="form-group col"> 
                 <label for="ip_kumulatif">IP Kumulatif</label>
-                <input type="text" class="form-control" id="ip_kumulatif" name="ip_kumulatif" value="<?php echo $ip_kumulatif; ?>">
+                <input type="text" class="form-control" id="ip_kumulatif" name="ip_kumulatif" value="<?php echo $hasilip; ?>" readonly>
                 <div class="error"><?php if(isset($error_ip_kumulatif)) echo $error_ip_kumulatif;?></div>
             </div>
         </div>
@@ -204,6 +213,18 @@ if (isset($_POST["submit"])) {
 
                     success: function(data) {
                         $("#container_sks").html(data);
+                    }
+                });
+                $.ajax({
+                    url: 'khs.php',
+                    method: "POST",
+                    data: {
+                        smt: smt,
+                        id: id
+                    },
+
+                    success: function(data) {
+                        $("#container_ips").html(data);
                     }
                 });
             })

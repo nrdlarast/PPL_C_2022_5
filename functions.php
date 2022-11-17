@@ -115,15 +115,16 @@
     function khs($data){
         global $db;
         
-        //update data to database
         $irs_id = htmlspecialchars($data["irs_id"]);
-        // $semester_aktif = htmlspecialchars($data["semester_aktif"]);
-        // $jumlah_sks = htmlspecialchars($data["jumlah_sks"]);
+        $semester_aktif = htmlspecialchars($data["semester_aktif"]);
+        $ips = htmlspecialchars($data["ip_semester"]);
+        $ipk = htmlspecialchars($data["ip_kumulatif"]);
 
-        // $query = "UPDATE irs SET 
-        //     jumlah_sks = '$jumlah_sks'
-        //     WHERE irs_id = $irs_id AND semester_aktif = $semester_aktif
-        // ";
+        $query = "UPDATE irs SET 
+            ip_semester = '$ips',
+            ip_kumulatif = '$ipk'
+            WHERE irs_id = $irs_id AND semester_aktif = $semester_aktif
+        ";
     
         // mysqli_query($db,$query);
 
