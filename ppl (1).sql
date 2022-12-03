@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 17, 2022 at 04:02 PM
+-- Generation Time: Dec 03, 2022 at 01:36 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -79,7 +79,7 @@ CREATE TABLE `dosen` (
 --
 
 INSERT INTO `dosen` (`nip`, `nama`, `email`, `alamat`, `no_hp`, `foto`) VALUES
-('12321300', 'Atika Rahmanda', 'atikarahmanda@gmail.com', 'Jl. Prof. Sudarto No.13, Tembalang, Kec. Tembalang', '083181048662', 'asaa'),
+('12321300', 'Atika Rahmanda', 'atikarahmanda@lecture.undip.ac.id', 'Jl. Prof. Sudarto No.13, Tembalang, Kec. Tembalang', '083181048662', 'asaa'),
 ('1981042020050120', 'DR. KH. MA. Sahal Mahfudh', 'sahal@lectures.undip.ac.id', 'Jalan maera sari III', '081234567890', 'sahal.jpg'),
 ('1981042020050121', 'Achmad Slamet, M.S.I', 'achmad@lectures.undip.ac.id', 'Jalan Tunjungsari II ', '081245678392', 'achmad.jpg'),
 ('1981042020050124', 'Gumball Watterson, S.Kom,. M.T', 'gumbalworld@gmail.com', 'semarang', '083181048662', 'gumbal.jpg'),
@@ -103,7 +103,7 @@ CREATE TABLE `irs` (
   `jumlah_sks` int(11) NOT NULL,
   `berkas_irs` varchar(100) NOT NULL,
   `sks_kumulatif` int(11) NOT NULL,
-  `ip_semester` int(11) NOT NULL,
+  `ip_semester` float NOT NULL,
   `ip_kumulatif` int(11) NOT NULL,
   `berkas_khs` varchar(20) NOT NULL,
   `status_irs` varchar(15) NOT NULL
@@ -114,12 +114,19 @@ CREATE TABLE `irs` (
 --
 
 INSERT INTO `irs` (`no_irs`, `irs_id`, `semester_aktif`, `jumlah_sks`, `berkas_irs`, `sks_kumulatif`, `ip_semester`, `ip_kumulatif`, `berkas_khs`, `status_irs`) VALUES
-(1, '100001', 1, 18, '', 0, 0, 0, 'Untitled Workspace.p', 'belum'),
+(0, '100001', 1, 18, '', 0, 3.5, 4, '', ''),
+(1, '100001', 2, 24, '', 0, 4, 1, '', 'belum'),
 (2, '200001', 2, 18, 'Untitled Workspace.png', 0, 0, 0, '', 'disetujui'),
 (3, '300001', 3, 18, 'Untitled Workspace.png', 0, 0, 0, '', 'disetujui'),
+(4, '100001', 3, 24, '', 0, 0, 0, '', ''),
 (5, '100002', 2, 24, '1bbbbc0f6a5b1448ea19f543c1a8dda1.jpg', 0, 0, 0, 'Untitled Workspace.p', 'belum'),
 (6, '100003', 3, 22, '1bbbbc0f6a5b1448ea19f543c1a8dda1.jpg', 0, 0, 0, 'Untitled Workspace.p', 'disetujui'),
-(7, '100004', 4, 22, '1bbbbc0f6a5b1448ea19f543c1a8dda1.jpg', 0, 0, 0, 'Untitled Workspace.p', 'disetujui');
+(7, '100004', 4, 22, '1bbbbc0f6a5b1448ea19f543c1a8dda1.jpg', 0, 0, 0, 'Untitled Workspace.p', 'disetujui'),
+(8, '100001', 4, 24, '', 0, 0, 0, '', ''),
+(9, '100001', 5, 0, '', 0, 0, 0, '', ''),
+(10, '100001', 6, 0, '', 0, 0, 0, '', ''),
+(11, '100001', 7, 0, '', 0, 0, 0, '', ''),
+(12, '100001', 8, 0, '', 0, 0, 0, '', '');
 
 -- --------------------------------------------------------
 
@@ -241,30 +248,13 @@ INSERT INTO `mahasiswa` (`nim`, `nama`, `email`, `status_mahasiswa`, `alamat`, `
 ('24060120120030', 'Rachmad Akbar Ramadhan', 'adan@students.undip.ac.id', 'aktif', 'Jalan Maera Sari III, Tembalang', '076543211109', '2019', 'mandiri', 'adan.jpg', 4, 'el@lectures.undip.ac.id', 'el@lectures.undip.ac.id', 'el@lectures.undip.ac.id', '1', '100002', '200002', '300002', '400002'),
 ('24060120120031', 'Agnes Triana', 'agnes@students.undip.ac.id', 'aktif', 'Jalan Banjarsari nomor IIA', '082245678394', '2020', 'snmptn', 'agnes.jpg', 4, 'el@lectures.undip.ac.id', 'el@lectures.undip.ac.id', 'el@lectures.undip.ac.id', '1', '100002', '200002', '300002', '400002'),
 ('24060120120032', 'Zara Zetira', 'zara@students.undip.ac.id', 'aktif', 'Jalan Tirtasari III', '082245678396', '2020', 'mandiri', 'zara.jpg', 4, 'el@lectures.undip.ac.id', 'el@lectures.undip.ac.id', 'el@lectures.undip.ac.id', '1', '100003', '200002', '300001', '400001'),
-('2406012013003444', 'Atika Rahmanda', 'atikarahmanda@gmail.com', 'cuti', 'Jl. Prof. Sudarto No.13, Tembalang, Kec. Tembalang, Kota Semarang, Jawa Tengah 50275', '083181048662', '2021', 'SBMPTN', 'atika.jpg', 4, 'atikarahmanda@gmail.com', 'atikarahmanda@gmail.com', 'gumbalworld@gmail.com', '1', '100001', '200001', '300001', '400001'),
+('2406012013003444', 'Atika Rahmandaaaa', 'atikarahmanda@gmail.com', 'cuti', 'Jl. Prof. Sudarto No.13, Tembalang, Kec. Tembalang, Kota Semarang, Jawa Tengah 50275', '083181048662', '2021', 'SBMPTN', 'admin.jpg', 4, 'atikarahmanda@gmail.com', 'atikarahmanda@gmail.com', 'gumbalworld@gmail.com', '1', '100001', '200001', '300001', '400001'),
 ('240601201300444353', 'Mumtaz Hana', 'hana@gmail.com', 'aktif', 'Jl. Prof. Sudarto No.13, Tembalang, Kec. Tembalang, Kota Semarang, Jawa Tengah 50275', '083181048662', '2022', 'SBMPTN', 'hana.jpg', 4, 'atikarahmanda@gmail.com', 'atikarahmanda@gmail.com', 'atikarahmanda@gmail.com', '1', '100001', '200001', '300001', '400001'),
 ('24060120130044435323', 'Veronika Manalu', 'veronika@gmail.com', 'aktif', 'Jl. Prof. Sudarto No.14, Tembalang, Kec. Tembalang, Kota Semarang, Jawa Tengah 50275', '083181048662', '2022', 'SBMPTN', 'vero.jpg', 4, 'atikarahmanda@gmail.com', 'atikarahmanda@gmail.com', 'atikarahmanda@gmail.com', '1', '100001', '200001', '300001', '400001'),
-('24060120130044534', 'El Nurida', 'el@gmail.com', 'aktif', 'Jl. Prof. Sudarto No.20, Tembalang, Kec. Tembalang, Kota Semarang, Jawa Tengah 50275', '083181048662', '2020', 'SNMPTN', 'el.jpg', 1231, 'atikarahmanda@gmail.com', 'atikarahmanda@gmail.com', 'atikarahmanda@gmail.com', '1', '100001', '200001', '300002', '400001'),
+('24060120130044534', 'El Nurida', 'el@gmail.com', 'aktif', 'Jl. Prof. Sudarto No.20, Tembalang, Kec. Tembalang, Kota Semarang, Jawa Tengah 50275', '081156104125', '2020', 'SNMPTN', 'ENbMLaPW4AA4HGZ.jpg', 1231, 'atikarahmanda@gmail.com', 'atikarahmanda@gmail.com', 'atikarahmanda@gmail.com', '1', '100001', '200001', '300002', '400001'),
 ('24060120130056', 'Sartika Munthe', 'sartika@students.undip.ac.id', 'aktif', 'semarang kotaa', '083181048662', '2021', 'Mandiri', 'tikaa.jpg', 0, 'gumbalworld@gmail.com', 'gumbalworld@gmail.com', 'gumbalworld@gmail.com', '1', '100001', '200001', '300001', '400001'),
+('24060120130056211', 'atika rahmanda', 'atikarahmanda@students.undip.ac.id', 'aktif', 'Pariaman', '0831810486622', '2020', 'SBMPTN', 'atika.jpg', 4, 'gumbalworld@gmail.com', 'gumbalworld@gmail.com', 'gumbalworld@gmail.com', '1', '100001', '200001', '300001', '400001'),
 ('24060120130057', 'Septiana Eka Putri', 'tia@students.undip.ac.id', 'aktif', 'semarang', '083181048663', '2016', 'SBMPTN', 'tia.jpg', 4, 'gumbalworlddd@gmail.com', 'gumbalworld@gmail.com', 'gumbalworld@gmail.com', '1', '100002', '200002', '300002', '400002');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `matakuliah`
---
-
-CREATE TABLE `matakuliah` (
-  `kode` varchar(11) NOT NULL,
-  `nama` varchar(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `matakuliah`
---
-
-INSERT INTO `matakuliah` (`kode`, `nama`) VALUES
-('50001', 'ppl');
 
 -- --------------------------------------------------------
 
@@ -285,7 +275,7 @@ CREATE TABLE `pkl` (
 
 INSERT INTO `pkl` (`pkl_id`, `status_pkl`, `nilai`, `berkas_pkl`) VALUES
 ('300001', 'belum', 4, ''),
-('300002', 'sedang', 4, '300002.jpg');
+('300002', 'lulus', 4, '300002.jpg');
 
 -- --------------------------------------------------------
 
@@ -326,7 +316,7 @@ CREATE TABLE `skripsi` (
 --
 
 INSERT INTO `skripsi` (`skripsi_id`, `status_skripsi`, `nilai`, `berkas_skripsi`, `lama_study`, `tanggal_sidang`) VALUES
-('400001', 'belum', '1', 'Untitled Workspace.png', '1', '0000-00-00'),
+('400001', 'lulus', '1', 'Untitled Workspace.png', '1', '0000-00-00'),
 ('400002', 'belum', '4', '400002.jpg', '4', '2022-10-01');
 
 -- --------------------------------------------------------
@@ -347,17 +337,28 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`nama`, `email`, `password`, `peran`) VALUES
+('Achmad Slamet, M.S.I', 'achmad@lectures.undip.ac.id', '123', 'dosen'),
+('adan', 'adan@students.undip.ac.id', '123', 'mahasiswa'),
 ('admin', 'admin@gmail.com', '123', 'admin'),
-('atika', 'atikarahfadmanda@gmail.com', '123', 'mahasiswa'),
-('atika', 'atikarahmadadanda@gmail.com', '123', 'mahasiswa'),
+('agnes', 'agnes@students.undip.ac.id', '123', 'mahasiswa'),
 ('atika rahmanda', 'atikarahmanda@gmail.com', '123', 'mahasiswa'),
-('atika', 'atikarahmanda@students.undip.ac.id', '123', 'mahasiswa'),
-('atika', 'atikarahsdamanda@gmail.com', '123', 'mahasiswa'),
-('atika rahmanda', 'atisdaakarahmanda@gmail.com', '123', 'mahasiswa'),
+('Atika Rahmanda', 'atikarahmanda@lecture.undip.ac.id', '123', 'dosen'),
+('Atika Rahmanda', 'atikarahmanda@students.undip.ac.id', '123', 'mahasiswa'),
+('El Nurida', 'el@gmail.com', '123', 'mahasiswa'),
+('Prof.Dr.H.Muhtarom', 'el@lectures.undip.ac.id', '123', 'dosen'),
 ('Gumball Watterson, S.Kom,. M.T', 'gumbalworld@gmail.com', '123', 'dosen'),
+('Mumtaz Hana', 'hana@gmail.com', '123', 'mahasiswa'),
 ('informatika', 'informatika@gmail.com', '123', 'departemen'),
-('atika resti', 'tika@lectures.undip.ac.id', '123', 'dosen'),
-('veronika', 'vero@students.undip.ac.id', '123', 'mahasiswa');
+('Lur Rochman,S.Ag', 'lur@lectures.undip.ac.id', '123', 'dosen'),
+('Mahalli Djufri,M.Pd', 'mahali@lectures.undip.ac.id', '123', 'dosen'),
+('H.Noor Rohman,B.Ed,MA', 'noor@lectures.undip.ac.id', '123', 'dosen'),
+('DR. KH. MA. Sahal Mahfudh', 'sahal@lectures.undip.ac.id', '123', 'dosen'),
+('Sartika Munthe', 'sartika@students.undip.ac.id', '123', 'mahasiswa'),
+('H.Suwanto,S.Ag,MM', 'suwanto@lectures.undip.ac.id', '123', 'dosen'),
+('Septiana Eka Putri', 'tia@students.undip.ac.id', '123', 'mahasiswa'),
+('veronika', 'veronika@gmail.com', '123', 'mahasiswa'),
+('Drs. M. Yasin,M.Ag', 'yasin@lectures.undip.ac.id', '123', 'dosen'),
+('Zara Zetira', 'zara@students.undip.ac.id', '123', 'mahasiswa');
 
 --
 -- Indexes for dumped tables
