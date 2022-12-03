@@ -164,7 +164,7 @@ if (!isset($_POST["submit"])) {
 
       <div class="form-group col">
         <label for="nama">Nama</label>
-        <input type="text" class="form-control" id="nama" name="nama" value="<?php echo $nama; ?>">
+        <input type="text" class="form-control" id="nama" name="nama" value="<?php echo $nama; ?>" readonly>
         <div class="text-danger"><?php if (isset($error_nama)) echo $error_nama;?></div>
       </div>
 
