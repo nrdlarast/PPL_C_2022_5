@@ -159,13 +159,13 @@ if (!isset($_POST["submit"])) {
       <div class="form-group col"> 
         <label for="nim">NIM</label>
         <input type="text" class="form-control" id="nim" name="nim" value="<?php echo $nim; ?>" readonly>
-        <div class="error"><?php if(isset($error_nim)) echo $error_nim;?></div>
+        <div class="text-danger"><?php if(isset($error_nim)) echo $error_nim;?></div>
       </div>
 
       <div class="form-group col">
         <label for="nama">Nama</label>
         <input type="text" class="form-control" id="nama" name="nama" value="<?php echo $nama; ?>">
-        <div class="error"><?php if (isset($error_nama)) echo $error_nama;?></div>
+        <div class="text-danger"><?php if (isset($error_nama)) echo $error_nama;?></div>
       </div>
 
       <div class="form-group col">
@@ -180,7 +180,7 @@ if (!isset($_POST["submit"])) {
           <option value="2017" <?php if (isset($angkatan) && $angkatan=="2017") echo'selected="true"'; ?>>2017</option>
           <option value="2016" <?php if (isset($angkatan) && $angkatan=="2016") echo'selected="true"'; ?>>2016</option>
           </select>
-          <div class="error"><?php if (isset($error_angkatan)) echo $error_angkatan;?></div>
+          <div class="text-danger"><?php if (isset($error_angkatan)) echo $error_angkatan;?></div>
       </div>
 
       <div class="form-group">
@@ -194,7 +194,7 @@ if (!isset($_POST["submit"])) {
             <option value="SBMPTN" <?php if (isset($jalur_masuk) && $jalur_masuk=="SBMPTN") echo 'selected="true"'; ?>>SBMPTN</option>
             <option value="Mandiri" <?php if (isset($jalur_masuk) && $jalur_masuk=="Mandiri") echo'selected="true"'; ?>>Mandiri</option>
             </select>
-            <div class="error"><?php if (isset($error_jalur_masuk)) echo $error_jalur_masuk;?></div>
+            <div class="text-danger"><?php if (isset($error_jalur_masuk)) echo $error_jalur_masuk;?></div>
         </div>
 
         <div class="col">
@@ -205,20 +205,20 @@ if (!isset($_POST["submit"])) {
             <option value="cuti" <?php if (isset($status_mahasiswa) && $status_mahasiswa=="cuti") echo 'selected="true"'; ?>>Cuti</option>
             <option value="mangkir" <?php if (isset($status_mahasiswa) && $status_mahasiswa=="mangkir") echo 'selected="true"'; ?>>Mangkir</option>
             </select>
-            <div class="error"><?php if (isset($error_status)) echo $error_status;?></div>
+            <div class="text-danger"><?php if (isset($error_status)) echo $error_status;?></div>
         </div>
       </div>
 
         <div class="form-group col">
           <label for="email">Email</label>
           <input type="text" class="form-control" id="email" name="email" value="<?php echo $email; ?>">
-          <div class="error"><?php if(isset($error_email)) echo $error_email;?></div>
+          <div class="text-danger"><?php if(isset($error_email)) echo $error_email;?></div>
         </div>
 
         <div class="form-group col">
           <label for="nohandphone">No.Handphone</label>
           <input type="text" class="form-control" id="no_hp" name="no_hp" value="<?php echo $no_hp; ?>">
-          <div class="error"><?php if(isset($error_no_hp)) echo $error_no_hp;?></div>
+          <div class="text-danger"><?php if(isset($error_no_hp)) echo $error_no_hp;?></div>
         </div>
       
       </div>
@@ -231,29 +231,29 @@ if (!isset($_POST["submit"])) {
       <div class="form-group">
         <label for="alamat">Alamat</label>
         <textarea class="form-control" id="alamat" name="alamat" rows="5"><?php echo $alamat;?></textarea>
-        <div class="error"><?php if (isset($error_alamat)) echo $error_alamat;?></div>
+        <div class="text-danger"><?php if (isset($error_alamat)) echo $error_alamat;?></div>
       </div>
 
       <div class="form-group col">
           <label for="kabkot">Kabupaten/Kota</label>
           <input type="text" class="form-control" id="nama_kotakab" name="nama_kotakab" value="<?php echo $nama_kotakab; ?>">
-          <div class="error"><?php if (isset($error_nama_kotakab)) echo $error_nama_kotakab;?></div>
+          <div class="text-danger"><?php if (isset($error_nama_kotakab)) echo $error_nama_kotakab;?></div>
         </div>
         <div class="form-group col">
           <label for="kabkot">Kecamatan</label>
           <input type="text" class="form-control" id="kecamatan" name="kecamatan" value="<?php echo $kecamatan; ?>">
-          <div class="error"><?php if (isset($error_kecamatan)) echo $error_kecamatan;?></div>
+          <div class="text-danger"><?php if (isset($error_kecamatan)) echo $error_kecamatan;?></div>
         </div>
         <div class="form-group col">
           <label for="kabkot">Kelurahan</label>
           <input type="text" class="form-control" id="kelurahan" name="kelurahan" value="<?php echo $kelurahan; ?>">
-          <div class="error"><?php if (isset($error_kelurahan)) echo $error_kelurahan;?></div>
+          <div class="text-danger"><?php if (isset($error_kelurahan)) echo $error_kelurahan;?></div>
         </div>
 
         <div class="form-group col">
           <label for="provinsi">Provinsi</label>
           <input type="text" class="form-control" id="nama_provinsi" name="nama_provinsi" value="<?php echo $nama_provinsi; ?>">
-          <div class="error"><?php if (isset($error_nama_provinsi)) echo $error_nama_provinsi;?></div>
+          <div class="text-danger"><?php if (isset($error_nama_provinsi)) echo $error_nama_provinsi;?></div>
         </div>
     </div>
     

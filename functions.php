@@ -126,7 +126,7 @@
             WHERE irs_id = $irs_id AND semester_aktif = $semester_aktif
         ";
     
-        // mysqli_query($db,$query);
+        mysqli_query($db,$query);
 
         //upload file
         $direktori = "uploadKHS/";

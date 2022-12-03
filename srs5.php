@@ -109,11 +109,11 @@ if (isset($_POST["submit"])) {
             <div class="form-group col"> 
                 <label for="nilaipkl">Nilai PKL</label>
                 <input type="text" class="form-control" id="nilai" name="nilai" value="<?php echo $nilai; ?>">
-                <div class="error"><?php if(isset($error_nilai)) echo $error_nilai;?></div>
+                <div class="text-danger"><?php if(isset($error_nilai)) echo $error_nilai;?></div>
             </div>
             <div class="form-group col">
                 <input type="hidden" class="form-control" id="pkl_id" name="pkl_id" value="<?php echo $pkl_id; ?>" readonly>
-                <div class="error"><?php if (isset($error_pkl_id)) echo $error_pkl_id; ?></div>
+                <div class="text-danger"><?php if (isset($error_pkl_id)) echo $error_pkl_id; ?></div>
         </div>
         </div>
         

@@ -1,5 +1,6 @@
 <?php include 'header_mhs.html' ?>
 <?php
+require_once('db_login.php');
 require 'functions.php';
 session_start();
 if (!isset($_SESSION['email'])){
@@ -8,43 +9,14 @@ if (!isset($_SESSION['email'])){
 //mengecek apakah user belum menekan tombol submit 
 if (isset($_POST["submit"])) {
     $valid = TRUE; //flag validasi
-    // $name = test_input ($_POST['name']);
-    // if ($name == '') {
-    //     $error_nama = "Name is required";
-    //     $valid = FALSE; 
-    // } elseif (!preg_match("/^[a-zA-Z ]*$/", $nama)) {
-    //     $error_nama = "Only letters and white space allowed"; 
+    $jumlah_sks = test_input ($_POST['jumlah_sks']); 
+    if ($jumlah_sks == ''){
+        $error_jumlah_sks = "Jumlah SKS is required";
+        $valid = FALSE;
+    }
+    // if ($_FILES['nama_file']['error']){
+    //     $error_nama_file = "Scan IRS is required";
     //     $valid = FALSE;
-    // }
-    // $nim = test_input ($_POST['nim']); 
-    // if ($address == ''){
-    //     $error_address = "NIM is required";
-    //     $valid = FALSE;
-    // }
-    // $address = test_input ($_POST['address']); 
-    // if ($address == ''){
-    //     $error_address = "Address is required";
-    //     $valid = FALSE;
-    // }
-    // $city = $_POST['city'];
-    // if ($city == '' || $city == 'none') {
-    //     $error_city = "City is required";
-    //     $valid = FALSE;
-    // }
-    //update data into database
-    // if ($valid) {
-    //     //escape inputs data
-    //     $address = $db->real_escape_string($address);
-    //     //Asign a query
-    //     $query = " UPDATE customers SET nama='". $nama."' WHERE nim=".$nim." ";
-    //     // Execute the query
-    //     $result = $db->query($query);
-    //     if (!$result) {
-    //         die ("Could not query the database: <br />". $db->error. '<br>query:' . $query);
-    //     }else{
-    //         $db->close();
-    //         header('Location: view_customer.php');
-    //     }
     // }
         if( isset($_POST["submit"])){
 
@@ -65,10 +37,6 @@ if (isset($_POST["submit"])) {
       }
 }
 
-?>
-<?php
-// Include our login information
-require_once('db_login.php');
 $query = "SELECT * FROM mahasiswa join irs on mahasiswa.irs_id = irs.irs_id WHERE email='$_SESSION[email]' AND semester_aktif = 1";
 $result = $db->query($query);
 if (!$result) {
@@ -123,14 +91,13 @@ if (!$result) {
                             <div id="container_sks">
                                 <input type="type" class="form-control" id="jumlah_sks" name="jumlah_sks" value="<?php echo $jumlah_sks; ?>">
                             </div>
-                            <!-- <input type="text" class="form-control" id="jumlah_sks" name="jumlah_sks"> -->
-                            <div class="error"><?php if (isset($error_jumlah_sks)) echo $error_jumlah_sks; ?></div>
+                            <div class="text-danger"><?php if (isset($error_jumlah_sks)) echo $error_jumlah_sks; ?></div>
                         </div>
                     </div>
 
                 </form>
                 <div class="col-5">
-                    <label for="jmlsks">Scan IRS</label>
+                    <label for="nama_file">Scan IRS</label>
                     <div id="file-js-example" class="file has-name is-boxed">
                         <label class="file-label">
                             <input class="file-input" type="file" name="nama_file" id="nama_file">
@@ -153,6 +120,7 @@ if (!$result) {
                                 <?= $berkas_irs ?>
                             </div>
                     </div>
+                    <div class="text-danger"><?php if (isset($_FILES['nama_file']['error'])) echo 'Scan IRS is required'; ?></div>
                 </div>
                 <div class="col">
                     <img src="img/<?php echo $foto ?>" class="rounded darwin " alt="" height="200px" width="200px">

@@ -11,11 +11,6 @@ if (!isset($_SESSION['email'])){
 <?php
     // Include our login information
     require_once('db_login.php');
-    // execute the query
-    // $query = query($db, "SELECT * FROM mahasiswa WHERE email='$email' AND password='$password'");
-    // $query    =mysqli_query($db, "SELECT * FROM mahasiswa WHERE email='$_SESSION[id_email]'");
-    //     $peg    =mysqli_fetch_array($tampilPeg);
-    // select * from pkl join mahasiswa on mahasiswa.pkl_id = pkl.pkl_id where status ='belum'
     $query = "SELECT * FROM mahasiswa
     join kelurahan on mahasiswa.kelurahan_id = kelurahan.kelurahan_id
     join kecamatan on kelurahan.kecamatan_id = kecamatan.kecamatan_id
@@ -41,10 +36,10 @@ if (!isset($_SESSION['email'])){
             $nama_provinsi = $row->nama_provinsi;
             $kecamatan = $row->kecamatan;
             $kelurahan = $row->kelurahan;
-            $kode_pos = $row->kode_pos;
+            $kode_pos = $row->kode_pos; 
             }
         }
-            
+     
 ?>
 <div class="container">
     <?php include 'navbarmhs.php' ?>
@@ -74,12 +69,6 @@ if (!isset($_SESSION['email'])){
                     <div>
                         <label for="status">Status</label>
                         <input type="text" class="form-control" name="status" id="status" value="<?php echo $status_mahasiswa; ?>" readonly>
-                        <!-- <select name="status" id="status" class="form-control" required>
-                            <option value="none" <?php if (!isset($status_mahasiswa)) echo 'selected="true"'; ?>> --Select status--</option>
-                            <option value="aktif" <?php if (isset($status_mahasiswa) && $status_mahasiswa=="aktif") echo 'selected="true"'; ?>>Aktif</option>
-                            <option value="cuti" <?php if (isset($status_mahasiswa) && $status_mahasiswa=="cuti") echo 'selected="true"'; ?>>Cuti</option>
-                            <option value="mangkir" <?php if (isset($status_mahasiswa) && $status_mahasiswa=="mangkir") echo 'selected="true"'; ?>>Mangkir</option>
-                        </select> -->
                         <div class="error"><?php if (isset($error_status)) echo $error_status;?></div>
 					</div>
 				</div>
@@ -98,16 +87,6 @@ if (!isset($_SESSION['email'])){
                     <div class="col form-group">
                         <label for="status">Angkatan</label>
                         <input type="text" class="form-control" name="angkatan" id="angkatan" value="<?php echo $angkatan; ?>"readonly>
-                        <!-- <select name="angkatan" id="angkatan" class="form-control" required readonly>
-                            <option value="none" <?php if (!isset($angkatan)) echo 'selected="true"'; ?>> --Select angkatan--</option>
-                            <option value="2022" <?php if (isset($angkatan) && $angkatan=="2022") echo 'selected="true"'; ?>>2022</option>
-                            <option value="2021" <?php if (isset($angkatan) && $angkatan=="2021") echo 'selected="true"'; ?>>2021</option>
-                            <option value="2020" <?php if (isset($angkatan) && $angkatan=="2020") echo'selected="true"'; ?>>2020</option>
-                            <option value="2019" <?php if (isset($angkatan) && $angkatan=="2019") echo'selected="true"'; ?>>2019</option>
-                            <option value="2018" <?php if (isset($angkatan) && $angkatan=="2018") echo'selected="true"'; ?>>2018</option>
-                            <option value="2017" <?php if (isset($angkatan) && $angkatan=="2017") echo'selected="true"'; ?>>2017</option>
-                            <option value="2016" <?php if (isset($angkatan) && $angkatan=="2016") echo'selected="true"'; ?>>2016</option>
-                            </select> -->
                         <div class="error"><?php if (isset($error_angkatan)) echo $error_jangkatan;?></div>
                     </div>
 				</div>
@@ -127,14 +106,7 @@ if (!isset($_SESSION['email'])){
                     <div class="form-group col">
                         <label for="jalur_masuk">Jalur Masuk</label>
                         <input type="text" class="form-control" name="jalur_masuk" id="jalur_masuk" value="<?php echo $jalur_masuk; ?>"readonly>
-                        <!-- <select name="jalur_masuk" id="jalur_masuk" class="form-control" required>
-                            <option value="none" <?php if (!isset($jalur_masuk)) echo 'selected="true"'; ?>> --Select jalur masuk--</option>
-                            <option value="SNMPTN" <?php if (isset($jalur_masuk) && $jalur_masuk=="SNMPTN") echo 'selected="true"'; ?>>SNMPTN</option>
-                            <option value="SBMPTN" <?php if (isset($jalur_masuk) && $jalur_masuk=="SBMPTN") echo 'selected="true"'; ?>>SBMPTN</option>
-                            <option value="Mandiri" <?php if (isset($jalur_masuk) && $jalur_masuk=="Mandiri") echo'selected="true"'; ?>>Mandiri</option>
-                            </select> -->
                         <div class="error"><?php if (isset($error_jalur_masuk)) echo $error_jalur_masuk;?></div>
-                        <!-- <small class="form-text text-danger" id="jalur_masuk_error"></small> -->
                     </div>
 				</div>
             </div>

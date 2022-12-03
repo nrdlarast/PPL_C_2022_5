@@ -66,15 +66,10 @@ if (isset($_POST["submit"])) {
 <?php
     // Include our login information
     require_once('db_login.php');
-    // execute the query
-    // $query = query($db, "SELECT * FROM mahasiswa WHERE email='$email' AND password='$password'");
-    // $query    =mysqli_query($db, "SELECT * FROM mahasiswa WHERE email='$_SESSION[id_email]'");
-    //     $peg    =mysqli_fetch_array($tampilPeg);
-    // select * from pkl join mahasiswa on mahasiswa.pkl_id = pkl.pkl_id where status ='belum'
     $query = "SELECT * FROM mahasiswa 
                 JOIN irs ON mahasiswa.irs_id = irs.irs_id WHERE email='$_SESSION[email]' AND semester_aktif = 1";
     $query_sum = "SELECT SUM(jumlah_sks) as sum FROM mahasiswa JOIN irs ON mahasiswa.irs_id = irs.irs_id WHERE email='$_SESSION[email]'";
-    $query_ip = "SELECT ROUND(AVG(ip_semester),2) as avg FROM mahasiswa JOIN irs ON mahasiswa.irs_id = irs.irs_id WHERE email='$_SESSION[email]'";
+    $query_ip = "SELECT ROUND(AVG(ip_semester),2) as avg FROM mahasiswa JOIN irs ON mahasiswa.irs_id = irs.irs_id WHERE email='$_SESSION[email]' AND ip_semester != 0";
     $result = $db -> query($query);
     $result_sum = $db -> query($query_sum);
     $result_ip = $db -> query($query_ip);
@@ -128,11 +123,11 @@ if (isset($_POST["submit"])) {
                                 echo $rows["semester_aktif"]; ?>">Semester <?php echo $rows["semester_aktif"]; ?></option>
                 <?php }    ?>
             </select>
-            <div class="error"><?php if (isset($error_semester_aktif)) echo $error_semester_aktif;?></div>
+            <div class="text-danger"><?php if (isset($error_semester_aktif)) echo $error_semester_aktif;?></div>
 
             <div class="form-group col">
                 <input hidden type="type" class="form-control" id="irs_id" name="irs_id" value="<?php echo $irs_id; ?>" readonly>
-                <div class="error"><?php if (isset($error_irs_id)) echo $error_irs_id; ?></div>
+                <div class="text-danger"><?php if (isset($error_irs_id)) echo $error_irs_id; ?></div>
             </div>
 
             <div class="form-group col"> 
@@ -140,24 +135,24 @@ if (isset($_POST["submit"])) {
                 <div id="container_sks">
                     <input type="type" class="form-control" id="jumlah_sks" name="jumlah_sks" value="<?php echo $jumlah_sks; ?>">
                 </div>
-                <div class="error"><?php if(isset($error_sks_semester)) echo $error_sks_semester;?></div>
+                <div class="text-danger"><?php if(isset($error_sks_semester)) echo $error_sks_semester;?></div>
             </div>
             <div class="form-group col"> 
                 <label for="sks_kumulatif">Jumlah SKS Kumulatif</label>
                 <input type="text" class="form-control" id="sks_kumulatif" name="sks_kumulatif" value="<?php echo $hasilsum; ?>" readonly>
-                <div class="error"><?php if(isset($error_sks_kumulatif)) echo $error_sks_kumulatif;?></div>
+                <div class="text-danger"><?php if(isset($error_sks_kumulatif)) echo $error_sks_kumulatif;?></div>
             </div>
             <div class="form-group col"> 
                 <label for="ip_semester">IP Semester</label>
                 <div id="container_ips">
                     <input type="type" class="form-control" id="ip_semester" name="ip_semester" value="<?php echo $ip_semester; ?>">
                 </div>
-                <div class="error"><?php if(isset($error_ip_semester)) echo $error_ip_semester;?></div>
+                <div class="text-danger"><?php if(isset($error_ip_semester)) echo $error_ip_semester;?></div>
             </div>
             <div class="form-group col"> 
                 <label for="ip_kumulatif">IP Kumulatif</label>
                 <input type="text" class="form-control" id="ip_kumulatif" name="ip_kumulatif" value="<?php echo $hasilip; ?>" readonly>
-                <div class="error"><?php if(isset($error_ip_kumulatif)) echo $error_ip_kumulatif;?></div>
+                <div class="text-danger"><?php if(isset($error_ip_kumulatif)) echo $error_ip_kumulatif;?></div>
             </div>
         </div>
 

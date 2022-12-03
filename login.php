@@ -124,7 +124,7 @@ if (isset($_POST["submit"])){
       <div class="col form-group">
         <input type="password" class="form-control mb-2 " id="password" name="password" value="<?php if (isset($password)) {echo $password;} ?>">
       </div>
-      <div>
+      <div class="text-danger">
         <?php if (isset($error_login)) echo $error_login; ?></p>
       </div>
       
