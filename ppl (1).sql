@@ -84,8 +84,8 @@ INSERT INTO `dosen` (`nip`, `nama`, `email`, `alamat`, `no_hp`, `foto`) VALUES
 ('1981042020050121', 'Achmad Slamet, M.S.I', 'achmad@lectures.undip.ac.id', 'Jalan Tunjungsari II ', '081245678392', 'achmad.jpg'),
 ('1981042020050124', 'Gumball Watterson, S.Kom,. M.T', 'gumbalworld@gmail.com', 'semarang', '083181048662', 'gumbal.jpg'),
 ('1981042020050125', 'H.Suwanto,S.Ag,MM', 'suwanto@lectures.undip.ac.id', 'Gang mangga ', '082231456342', 'suwanto.jpg'),
-('1981042020050126', 'Drs. M. Yasin,M.Ag', 'yasin@lectures.undip.ac.id', 'Jalan gondang timur', '076524172819', 'yasin.jpg'),
-('1981042020050127', 'Prof.Dr.H.Muhtarom', 'el@lectures.undip.ac.id', 'surabaya', '085342132536', 'elcakep.jpg'),
+('1981042020050126', 'Drs. M. Yasin,M.Ag', 'yasin@lectures.undip.ac.id', 'Jalan gondang timur', '076524172819', 'yasin.jpeg'),
+('1981042020050127', 'Prof.Dr.H.Muhtarom', 'el@lectures.undip.ac.id', 'surabaya', '085342132536', 'elcakep.jpeg'),
 ('1981042020050128', 'H.Noor Rohman,B.Ed,MA', 'noor@lectures.undip.ac.id', 'bandung', '086574324534', 'hanaw.jpg'),
 ('1981042020050129', 'Mahalli Djufri,M.Pd', 'mahali@lectures.undip.ac.id', 'gunung pati', '076543216544', 'mahali.jpg'),
 ('1981042020050130', 'Lur Rochman,S.Ag', 'lur@lectures.undip.ac.id', 'cirebon', '085342132567', 'lur.jpg');
