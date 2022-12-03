@@ -89,7 +89,7 @@ if (!$result) {
                         <div class="form-group col">
                             <label for="jumlah_sks">Jumlah SKS</label>
                             <div id="container_sks">
-                                <input type="type" class="form-control" id="jumlah_sks" name="jumlah_sks" value="<?php echo $jumlah_sks; ?>">
+                                <input type="type" class="form-control" id="jumlah_sks" name="jumlah_sks" value="<?php echo $jumlah_sks; ?>"readonly>
                             </div>
                             <div class="text-danger"><?php if (isset($error_jumlah_sks)) echo $error_jumlah_sks; ?></div>
                         </div>

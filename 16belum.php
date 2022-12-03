@@ -1,4 +1,9 @@
-
+<?php
+session_start();
+if (!isset($_SESSION['email'])){
+    header("Location: login.php");
+}
+?>
 <?php include'header.html' ?>
   <div class="row">
     <div class="col-sm">

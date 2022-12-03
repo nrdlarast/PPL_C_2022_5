@@ -1,11 +1,4 @@
 <?php
-session_start();
-if(!isset($_SESSION["login"]) ) {
-    // header("Location: login.php");
-    // exit;
-}
-?>
-<?php
     // Include our login information
     require_once('db_login.php');
 	$query = "SELECT * FROM admin

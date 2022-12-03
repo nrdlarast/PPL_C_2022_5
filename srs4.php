@@ -133,7 +133,7 @@ if (isset($_POST["submit"])) {
             <div class="form-group col"> 
                 <label for="jumlah_sks">Jumlah SKS Semester</label>
                 <div id="container_sks">
-                    <input type="type" class="form-control" id="jumlah_sks" name="jumlah_sks" value="<?php echo $jumlah_sks; ?>">
+                    <input type="type" class="form-control" id="jumlah_sks" name="jumlah_sks" value="<?php echo $jumlah_sks; ?>"readonly>
                 </div>
                 <div class="text-danger"><?php if(isset($error_sks_semester)) echo $error_sks_semester;?></div>
             </div>
@@ -145,7 +145,7 @@ if (isset($_POST["submit"])) {
             <div class="form-group col"> 
                 <label for="ip_semester">IP Semester</label>
                 <div id="container_ips">
-                    <input type="type" class="form-control" id="ip_semester" name="ip_semester" value="<?php echo $ip_semester; ?>">
+                    <input type="type" class="form-control" id="ip_semester" name="ip_semester" value="<?php echo $ip_semester; ?>"readonly>
                 </div>
                 <div class="text-danger"><?php if(isset($error_ip_semester)) echo $error_ip_semester;?></div>
             </div>

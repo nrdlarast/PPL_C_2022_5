@@ -109,7 +109,7 @@ if (isset($_POST["submit"])) {
 
             <div class="form-group col"> 
                 <label for="nilaiskripsi">Nilai Skripsi</label>
-                <input type="text" class="form-control" id="nilai" name="nilai" value="<?php echo $nilai; ?>">
+                <input type="text" class="form-control" id="nilai" name="nilai" value="<?php echo $nilai; ?>"readonly>
                 <div class="error"><?php if(isset($error_nilai)) echo $error_nilai;?></div>
             </div>
             

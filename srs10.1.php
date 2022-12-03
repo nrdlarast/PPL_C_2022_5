@@ -1,12 +1,10 @@
 <?php include'header.html' 
 ?>
 <?php
-
 session_start();
 if (!isset($_SESSION['email'])){
     header("Location: login.php");
 }
-
 ?>
 <?php
     // Include our login information

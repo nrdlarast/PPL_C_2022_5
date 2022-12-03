@@ -1,4 +1,10 @@
 <?php 
+session_start();
+if (!isset($_SESSION['email'])){
+    header("Location: login.php");
+}
+?>
+<?php 
 require_once('db_login.php');
 $nip = $_GET['nip']; //mendapatkan customerid yang dilewatkan ke url
 
@@ -89,12 +95,12 @@ if (!isset($_POST["submit"])) {
                 <form method="POST" autocomplete="on" action="">
                     <div class="form-group">
                         <label for="nip">Nip:</label>
-                        <input type="text" class="form-control" id="nip" name="nip" value="<?php echo $nip; ?>">
+                        <input type="text" class="form-control" id="nip" name="nip" value="<?php echo $nip; ?>"readonly>
                         <div class="error"><?php if(isset($error_nip)) echo $error_nip;?></div>
                     </div>
                     <div class="form-group">
                         <label for="nama">Nama:</label>
-                        <input type="text" class="form-control" id="nama" name="nama" value="<?php echo $nama; ?>">
+                        <input type="text" class="form-control" id="nama" name="nama" value="<?php echo $nama; ?>"readonly>
                         <div class="error"><?php if(isset($error_nama)) echo $error_nama;?></div>
                     </div>
                     <div class="col" style="margin-top: 25px;margin-bottom: 10px;">

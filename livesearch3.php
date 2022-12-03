@@ -5,8 +5,8 @@ if (isset($_POST["input"])){
     $input = $_POST["input"];
     $no = 1;
     $query = "SELECT * FROM mahasiswa
-            WHERE nama LIKE '{$input}%' OR
-            nim LIKE '{$input}%'";
+            WHERE nama LIKE '%".$input."%' OR
+            nim LIKE '%".$input."%'";
     $result = mysqli_query($db,$query);
 
     if(mysqli_num_rows($result) >0 ){?>

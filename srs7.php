@@ -1,8 +1,14 @@
-<?php 
-require_once('db_login.php');
+<?php
+session_start();
 if (!isset($_SESSION['email'])){
     header("Location: login.php");
 }
+?>
+<?php 
+require_once('db_login.php');
+// if (!isset($_SESSION['email'])){
+//     header("Location: login.php");
+// }
 $nim = $_GET['nim']; //mendapatkan customerid yang dilewatkan ke url
 
 //mengecek apakah user belum menekan tombol submit 

@@ -1,9 +1,13 @@
 <?php include'header.html' ?>
-
 <?php
     require_once('db_login.php');        
 ?>
-
+<?php 
+session_start();
+if (!isset($_SESSION['email'])){
+    header("Location: login.php");
+}
+?>
   <div class="row">
     <div class="col-sm">
     <?php include 'navbardepartemen.php' ?>

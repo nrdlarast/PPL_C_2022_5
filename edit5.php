@@ -1,4 +1,10 @@
 <?php 
+session_start();
+if (!isset($_SESSION['email'])){
+    header("Location: login.php");
+}
+?>
+<?php 
 require_once('db_login.php');
 $nim = $_GET['nim']; //mendapatkan customerid yang dilewatkan ke url
 
@@ -128,7 +134,7 @@ if (!isset($_POST["submit"])) {
             die ("Could not query the database: <br />". $db->error. '<br>query:' . $query);
         }else{
             $db->close();
-            header('Location: srs8.2.php');
+            header('Location: srs8.1.php');
         }
     }
 }
@@ -175,12 +181,12 @@ if (!isset($_POST["submit"])) {
                 <div class="col-4">
 					<div class="col" style="margin-top: 25px;margin-bottom: 10px;">
                         <label for="nama">Nama Lengkap:</label>
-                        <input type="text" class="form-control" id="nama" name="nama" value="<?php echo $nama; ?>">
+                        <input type="text" class="form-control" id="nama" name="nama" value="<?php echo $nama; ?>"readonly>
                         <div class="error"><?php if(isset($error_nama)) echo $error_nama;?></div>
                     </div>
                     <div class="form-group">
                         <label for="nim">Nim:</label>
-                        <input type="text" class="form-control" id="nim" name="nim" value="<?php echo $nim; ?>">
+                        <input type="text" class="form-control" id="nim" name="nim" value="<?php echo $nim; ?>"readonly>
                         <div class="error"><?php if(isset($error_nim)) echo $error_nim;?></div>
                     </div>
                     <div class="form-group">
@@ -259,7 +265,7 @@ if (!isset($_POST["submit"])) {
                             </div>
                         <br>
                     <button type="submit" class="btn btn-primary" name="submit" value="submit">Submit</button>
-                    <a href="srs8.2.php" class="btn btn-secondary">Cancel</a>
+                    <a href="srs8.1.php" class="btn btn-secondary">Cancel</a>
                 </form>
             </div>
         </div>

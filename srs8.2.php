@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION['email'])){
+    header("Location: login.php");
+}
+?>
 <?php include'header.html' ?>
 <?php error_reporting(0) ?>
   <div class="row">
@@ -40,7 +46,7 @@
                         <td><?php echo $nama; ?></td>
                         <td><?php echo $nim; ?></td>
                         <td>
-                            <a class="button" href="edit5.php?nim=<?= $row['nim']; ?>">More</a>
+                            <a class="button" href="edit4.php?nim=<?= $row['nim']; ?>">More</a>
                         </td>
                     </tr>
                     <?php } ?>

@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION['email'])){
+    header("Location: login.php");
+}
+?>
 <?php 
 require_once('db_login.php');
 $nip = $_GET['nip']; //mendapatkan customerid yang dilewatkan ke url

@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION['email'])){
+    header("Location: login.php");
+}
+?>
 <?php include'header.html' ?>
 <?php error_reporting(0) ?>
   <div class="row">
