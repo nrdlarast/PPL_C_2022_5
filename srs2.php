@@ -275,14 +275,7 @@ if (!isset($_POST["submit"])) {
                 </span>
               </label>
             </div>
-                    
-                <div class="d-flex justify-content-center tombol ">
-                    <!-- <button type="button" class="btn bedit border border-secondary">Ganti</button>
-                    <button type="button" class="btn bedit border border-secondary">Hapus</button> -->
-                </div>
-            
                 <div class="d-flex justify-content-center">
-                  <!-- <a class="btn btn-warning btn-sm" href="srs10.1.php?id=' . $row->ID.'">Update</a>&nbsp;&nbsp; -->
                   <button class="btn btn-warning btn-sm" type="submit" name="submit"style="margin-top:20px;width: 35%;">Update</button>
                 </div>
             </div>
