@@ -79,7 +79,7 @@ CREATE TABLE `dosen` (
 --
 
 INSERT INTO `dosen` (`nip`, `nama`, `email`, `alamat`, `no_hp`, `foto`) VALUES
-('12321300', 'Atika Rahmanda', 'atikarahmanda@lecture.undip.ac.id', 'Jl. Prof. Sudarto No.13, Tembalang, Kec. Tembalang', '083181048662', 'asaa'),
+('12321300', 'Atika Rahmanda', 'atikarahmanda@lecture.undip.ac.id', 'Jl. Prof. Sudarto No.13, Tembalang, Kec. Tembalang', '083181048662', 'asaa.jpg'),
 ('1981042020050120', 'DR. KH. MA. Sahal Mahfudh', 'sahal@lectures.undip.ac.id', 'Jalan maera sari III', '081234567890', 'sahal.jpg'),
 ('1981042020050121', 'Achmad Slamet, M.S.I', 'achmad@lectures.undip.ac.id', 'Jalan Tunjungsari II ', '081245678392', 'achmad.jpg'),
 ('1981042020050124', 'Gumball Watterson, S.Kom,. M.T', 'gumbalworld@gmail.com', 'semarang', '083181048662', 'gumbal.jpg'),
