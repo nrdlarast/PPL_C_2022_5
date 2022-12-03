@@ -95,9 +95,8 @@ if (isset($_POST["submit"])){
   </head>
 <body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<!-- As a heading -->
 
-<!-- <nav class="navbar sticky-top border-bottom mb-1"> -->
+<!-- As a heading -->
 <nav class="navbar border-bottom border-secondary">
   <div class="container-fluid justify-content-center ">
     <span>UNIVERSITAS DIPONEGORO</span>
@@ -131,11 +130,6 @@ if (isset($_POST["submit"])){
       
       <button type="submit" class="btn btn-primary blogin" name="submit" value="submit" >Login</button>
     </div>
-    <!-- <div class="col pfp">
-      <div class="col">
-        <button type="button" class="btn btn-primary blogin">Login</button>
-      </div> -->
-        
     </div>
   </div>
   </form>

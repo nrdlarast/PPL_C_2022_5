@@ -1,7 +1,9 @@
 <?php 
 require_once('db_login.php');
 session_start();
-
+if (!isset($_SESSION['email'])){
+  header("Location: login.php");
+}
 //mengecek apakah user belum menekan tombol submit 
 if (!isset($_POST["submit"])) {
     $query = "SELECT * FROM mahasiswa 
@@ -38,7 +40,6 @@ if (!isset($_POST["submit"])) {
         $error_nim = "Address is required";
         $valid = FALSE;
     }
-    
     $nama = test_input ($_POST['nama']);
     if ($nama == '') {
         $error_nama = "Nama is required";
@@ -111,11 +112,11 @@ if (!isset($_POST["submit"])) {
         $result = $db->query($query);   
         if(!file_exists($_FILES['nama_foto']['tmp_name']) || !is_uploaded_file($_FILES['nama_foto']['tmp_name'])) {
             echo"
-              <script>
-                  alert('data berhasil diubah!');
-                  document.location.href='srs10.1.php';
-              </script>
-          ";
+                <script>
+                    alert('data berhasil diubah!');
+                    document.location.href='srs10.1.php';
+                </script>
+              ";
 
         } else {
             $direktori = "img/";
@@ -126,19 +127,12 @@ if (!isset($_POST["submit"])) {
                         WHERE nim = $nim
             ");
             echo"
-            <script>
-                alert('data berhasil diubah!');
-                document.location.href='srs10.1.php';
-            </script>
-        ";
+                <script>
+                    alert('data berhasil diubah!');
+                    document.location.href='srs10.1.php';
+                </script>
+              ";
         } 
-            
-        // if (!$result) {
-        //     die ("Could not query the database: <br />". $db->error. '<br>query:' . $query);
-        // }else{
-        //     $db->close();
-        //     header('Location: srs10.1.php');
-        // }
     }
 }
 ?>
