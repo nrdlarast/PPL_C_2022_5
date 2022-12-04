@@ -211,7 +211,7 @@ if (!isset($_POST["submit"])) {
 
         <div class="form-group col">
           <label for="email">Email</label>
-          <input type="text" class="form-control" id="email" name="email" value="<?php echo $email; ?>">
+          <input type="text" class="form-control" id="email" name="email" value="<?php echo $email; ?>"readonly>
           <div class="text-danger"><?php if(isset($error_email)) echo $error_email;?></div>
         </div>
 
