@@ -30,11 +30,7 @@ $nim = $_GET['nim'];
 
             <div class="row khusus1 profile">
                 <div class="col">
-                    <?php if(!isset($berkas_khs)){
-                        echo "<h6 class='text-danger text-center mt-3'>No data Uploaded</h6>";
-                    } else {?>
-                        <img src="img/<?php echo $berkas_khs ?>" style="margin: auto" alt="">
-                    <?php }?>
+                        <img src="uploadKHS/<?php echo $berkas_khs ?>" style="margin: auto; height: 40pc;" alt="">
                     <div class="d-flex justify-content-center" style="margin-top:20px">
                         <a class="btn btn-primary btn-sm" href="srs7.php?nim=<?= $nim?>"style="width: 10%;">
                             Back
