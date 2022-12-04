@@ -31,6 +31,8 @@ if (!isset($_POST["submit"])) {
             $status_khs = $row->status_khs;
             $status_pkl = $row->status_pkl;
             $status_skripsi = $row->status_skripsi;
+            $nilai_pkl = $row->nilai_pkl;
+            $nilai_skripsi = $row->nilai_skripsi;
         }
     }
 } else {
@@ -68,6 +70,16 @@ if (!isset($_POST["submit"])) {
         $error_status_skripsi = "status_skripsi is required";
         $valid = FALSE;
     }
+    $nilai_pkl = test_input ($_POST['nilai_pkl']); 
+    if ($nilai_pkl == ''){
+        $error_nilai_pkl = "nilai_pkl is required";
+        $valid = FALSE;
+    }
+    $nilai_skripsi = test_input ($_POST['nilai_skripsi']); 
+    if ($nilai_skripsi == ''){
+        $error_nilai_skripsi = "nilai_skripsi is required";
+        $valid = FALSE;
+    }
     //update data into database
     if ($valid) {
         //escape inputs data
@@ -77,7 +89,7 @@ if (!isset($_POST["submit"])) {
         join khs on mahasiswa.khs_id = khs.khs_id
         join pkl on mahasiswa.pkl_id = pkl.pkl_id
         join skripsi on mahasiswa.skripsi_id = skripsi.skripsi_id
-        SET status_irs='". $status_irs."', status_khs='". $status_khs."', status_pkl='". $status_pkl."', status_skripsi='". $status_skripsi."' WHERE nim=".$nim." ";
+        SET nilai_pkl='". $nilai_pkl."', nilai_skripsi='". $nilai_skripsi."',status_irs='". $status_irs."', status_khs='". $status_khs."', status_pkl='". $status_pkl."', status_skripsi='". $status_skripsi."' WHERE nim=".$nim." ";
         // Execute the query
         $result = $db->query($query);
         if (!$result) {
@@ -149,6 +161,10 @@ if (!isset($_POST["submit"])) {
                                             <option value="lulus" <?php if (isset($status_pkl) && $status_pkl=="lulus") echo 'selected="true"'; ?>>Lulus PKL</option>
                                             </select>
                                         <div class="error"><?php if (isset($error_status_pkl)) echo $error_status_pkl;?></div>
+                                        <div class="col" style="margin-top: 25px;margin-bottom: 10px;margin-left:55px;margin-right:55px;">
+                                            <input type="text" class="form-control" id="nilai_pkl" name="nilai_pkl" value="<?php echo $nilai_pkl; ?>">
+                                            <div class="error"><?php if(isset($error_nilai_pkl)) echo $error_nilai_pkl;?></div>
+                                        </div>
                                         <a href="showpkl.php?nim=<?= $nim; ?>" class="btn btn-primary">Lihat Data PKL</a>
                                     </div>
                                 </div>
@@ -163,6 +179,10 @@ if (!isset($_POST["submit"])) {
                                             <option value="lulus" <?php if (isset($status_skripsi) && $status_skripsi=="lulus") echo 'selected="true"'; ?>>Lulus Skripsi</option>
                                             </select>
                                         <div class="error"><?php if (isset($error_status_skripsi)) echo $error_status_skripsi;?></div>
+                                        <div class="col" style="margin-top: 25px;margin-bottom: 10px;margin-left:55px;margin-right:55px;">
+                                            <input type="text" class="form-control" id="nilai_skripsi" name="nilai_skripsi" value="<?php echo $nilai_skripsi; ?>">
+                                            <div class="error"><?php if(isset($error_nilai_skripsi)) echo $error_nilai_skripsi;?></div>
+                                        </div>
                                         <a href="showskripsi.php?nim=<?= $nim; ?>" class="btn btn-primary">Lihat Data Skripsi</a>
                                     </div>
                                 </div></div>
