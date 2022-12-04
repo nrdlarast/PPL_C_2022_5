@@ -74,7 +74,7 @@ if (isset($_POST["submit"])) {
         while ($row = $result->fetch_object()) {
             $skripsi_id = $row->skripsi_id;
             $status_skripsi = $row->status_skripsi;
-            $nilai = $row->nilai;
+            $nilai_skripsi = $row->nilai_skripsi;
             $berkas_skripsi = $row->berkas_skripsi;
             $foto = $row->foto;
             }
@@ -108,9 +108,9 @@ if (isset($_POST["submit"])) {
         
 
             <div class="form-group col"> 
-                <label for="nilaiskripsi">Nilai Skripsi</label>
-                <input type="text" class="form-control" id="nilai" name="nilai" value="<?php echo $nilai; ?>"readonly>
-                <div class="error"><?php if(isset($error_nilai)) echo $error_nilai;?></div>
+                <label for="nilai_skripsi">Nilai Skripsi</label>
+                <input type="text" class="form-control" id="nilai_skripsi" name="nilai_skripsi" value="<?php echo $nilai_skripsi; ?>"readonly>
+                <div class="error"><?php if(isset($error_nilai_skripsi)) echo $error_nilai_skripsi;?></div>
             </div>
             
             <div class="form-group col">

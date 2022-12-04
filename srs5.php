@@ -72,7 +72,7 @@ if (isset($_POST["submit"])) {
         while ($row = $result->fetch_object()) {
             $pkl_id = $row->pkl_id;
             $status_pkl = $row->status_pkl;
-            $nilai = $row->nilai;
+            $nilai_pkl = $row->nilai_pkl;
             $berkas_pkl =$row->berkas_pkl;
             $foto = $row->foto;
             }
@@ -107,9 +107,9 @@ if (isset($_POST["submit"])) {
             <small class="form-text text-danger" id="jalur_masuk_error"></small>
             
             <div class="form-group col"> 
-                <label for="nilaipkl">Nilai PKL</label>
-                <input type="text" class="form-control" id="nilai" name="nilai" value="<?php echo $nilai; ?>"readonly>
-                <div class="text-danger"><?php if(isset($error_nilai)) echo $error_nilai;?></div>
+                <label for="nilai_pkl">Nilai PKL</label>
+                <input type="text" class="form-control" id="nilai_pkl" name="nilai_pkl" value="<?php echo $nilai_pkl; ?>"readonly>
+                <div class="text-danger"><?php if(isset($error_nilai_pkl)) echo $error_nilai_pkl;?></div>
             </div>
             <div class="form-group col">
                 <input type="hidden" class="form-control" id="pkl_id" name="pkl_id" value="<?php echo $pkl_id; ?>" readonly>
