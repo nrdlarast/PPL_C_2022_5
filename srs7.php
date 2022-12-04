@@ -135,7 +135,7 @@ if (!isset($_POST["submit"])) {
                                             <option value="disetujui" <?php if (isset($status_irs) && $status_irs=="disetujui") echo 'selected="true"'; ?>>Disetujui</option>
                                         </select>
                                         <div class="error"><?php if(isset($error_status_irs)) echo $error_status_irs;?></div>
-                                        <a href="showirs.php?nim=<?= $nim; ?>" class="btn btn-primary">Lihat Data IRS</a>
+                                        <a href="showirs.php?nim=<?= $nim; ?>" class="btn btn-primary" style="margin-top:65px ;">Lihat Data IRS</a>
                                     </div>
                                 </div>
                                 <div class="col-sm verif border-r" style="padding-top: 50px;padding-bottom: 50px;">
@@ -147,7 +147,7 @@ if (!isset($_POST["submit"])) {
                                             <option value="disetujui" <?php if (isset($status_khs) && $status_khs=="disetujui") echo 'selected="true"'; ?>>Disetujui</option>
                                         </select>
                                         <div class="error"><?php if(isset($error_status_khs)) echo $error_status_khs;?></div>
-                                        <a href="showkhs.php?nim=<?= $nim; ?>" class="btn btn-primary">Lihat Data KHS</a>
+                                        <a href="showkhs.php?nim=<?= $nim; ?>" class="btn btn-primary" style="margin-top:65px ;">Lihat Data KHS</a>
                                     </div>
                                 </div>
                                 
