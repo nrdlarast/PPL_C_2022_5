@@ -123,7 +123,7 @@ if (!isset($_POST["submit"])) {
                                             <option value="disetujui" <?php if (isset($status_irs) && $status_irs=="disetujui") echo 'selected="true"'; ?>>Disetujui</option>
                                         </select>
                                         <div class="error"><?php if(isset($error_status_irs)) echo $error_status_irs;?></div>
-                                        <a href="showirs.php?nim=<?= $nim; ?>" class="btn btn-primary">Lihat IRS</a>
+                                        <a href="showirs.php?nim=<?= $nim; ?>" class="btn btn-primary">Lihat Data IRS</a>
                                     </div>
                                 </div>
                                 <div class="col-sm verif border-r" style="padding-top: 50px;padding-bottom: 50px;">
@@ -135,7 +135,7 @@ if (!isset($_POST["submit"])) {
                                             <option value="disetujui" <?php if (isset($status_khs) && $status_khs=="disetujui") echo 'selected="true"'; ?>>Disetujui</option>
                                         </select>
                                         <div class="error"><?php if(isset($error_status_khs)) echo $error_status_khs;?></div>
-                                        <a href="showkhs.php?nim=<?= $nim; ?>" class="btn btn-primary">Lihat KHS</a>
+                                        <a href="showkhs.php?nim=<?= $nim; ?>" class="btn btn-primary">Lihat Data KHS</a>
                                     </div>
                                 </div>
                                 
@@ -149,7 +149,7 @@ if (!isset($_POST["submit"])) {
                                             <option value="lulus" <?php if (isset($status_pkl) && $status_pkl=="lulus") echo 'selected="true"'; ?>>Lulus PKL</option>
                                             </select>
                                         <div class="error"><?php if (isset($error_status_pkl)) echo $error_status_pkl;?></div>
-                                        <a href="showpkl.php?nim=<?= $nim; ?>" class="btn btn-primary">Lihat PKL</a>
+                                        <a href="showpkl.php?nim=<?= $nim; ?>" class="btn btn-primary">Lihat Data PKL</a>
                                     </div>
                                 </div>
 
@@ -163,13 +163,13 @@ if (!isset($_POST["submit"])) {
                                             <option value="lulus" <?php if (isset($status_skripsi) && $status_skripsi=="lulus") echo 'selected="true"'; ?>>Lulus Skripsi</option>
                                             </select>
                                         <div class="error"><?php if (isset($error_status_skripsi)) echo $error_status_skripsi;?></div>
-                                        <a href="showskripsi.php?nim=<?= $nim; ?>" class="btn btn-primary">Lihat Skripsi</a>
+                                        <a href="showskripsi.php?nim=<?= $nim; ?>" class="btn btn-primary">Lihat Data Skripsi</a>
                                     </div>
                                 </div></div>
                         <br>
                         <div class="d-flex justify-content-center">
                         <button type="submit" class="btn btn-primary" name="submit" value="submit">Submit</button>
-                        <a href="srs8.3.php" class="btn btn-secondary">Cancel</a>
+                        <a href="srs8.3.php" class="btn btn-secondary" style="margin-left:10px;">Cancel</a>
                     </form>
                 </div>
             </div>
