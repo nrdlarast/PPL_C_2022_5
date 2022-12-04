@@ -149,6 +149,7 @@ if (!isset($_POST["submit"])) {
                                             <option value="lulus" <?php if (isset($status_pkl) && $status_pkl=="lulus") echo 'selected="true"'; ?>>Lulus PKL</option>
                                             </select>
                                         <div class="error"><?php if (isset($error_status_pkl)) echo $error_status_pkl;?></div>
+                                        <a href="showpkl.php?nim=<?= $nim; ?>" class="btn btn-primary">Lihat PKL</a>
                                     </div>
                                 </div>
 
@@ -162,6 +163,7 @@ if (!isset($_POST["submit"])) {
                                             <option value="lulus" <?php if (isset($status_skripsi) && $status_skripsi=="lulus") echo 'selected="true"'; ?>>Lulus Skripsi</option>
                                             </select>
                                         <div class="error"><?php if (isset($error_status_skripsi)) echo $error_status_skripsi;?></div>
+                                        <a href="showskripsi.php?nim=<?= $nim; ?>" class="btn btn-primary">Lihat Skripsi</a>
                                     </div>
                                 </div></div>
                         <br>
