@@ -97,7 +97,7 @@ if (isset($_POST["submit"])) {
         <form method="POST" onsubmit="return submitForm()" name="form">
         <div class="col-5" style="padding-right: 70px;">
             <label for="status_pkl">Status PKL</label>
-            <select name="status_pkl" id="status_pkl" class="form-control" required>
+            <select name="status_pkl" id="status_pkl" class="form-control" required readonly>
                             <option value="none" <?php if (!isset($status_pkl)) echo 'selected="true"'; ?>> --Select status--</option>
                             <option value="belum" <?php if (isset($status_pkl) && $status_pkl=="belum") echo 'selected="true"'; ?>>Belum PKL</option>
                             <option value="sedang" <?php if (isset($status_pkl) && $status_pkl=="sedang") echo 'selected="true"'; ?>>Sedang PKL</option>

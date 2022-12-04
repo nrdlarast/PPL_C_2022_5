@@ -145,11 +145,11 @@
     
         $pkl_id = htmlspecialchars($data["pkl_id"]);
         $status_pkl = htmlspecialchars($data["status_pkl"]);
-        $nilai = htmlspecialchars($data["nilai"]);
+        $nilai = htmlspecialchars($data["nilai_pkl"]);
 
         $query = "UPDATE pkl SET 
             status_pkl = '$status_pkl',
-            nilai = '$nilai'
+            nilai_pkl = '$nilai'
             WHERE pkl_id = $pkl_id
         ";
     
@@ -172,11 +172,11 @@
     
         $skripsi_id = htmlspecialchars($data["skripsi_id"]);
         $status_skripsi = htmlspecialchars($data["status_skripsi"]);
-        $nilai = htmlspecialchars($data["nilai"]);
+        $nilai = htmlspecialchars($data["nilai_skripsi"]);
 
         $query = "UPDATE skripsi SET 
             status_skripsi = '$status_skripsi',
-            nilai = '$nilai'
+            nilai_skripsi = '$nilai'
             WHERE skripsi_id = $skripsi_id
         ";
     
